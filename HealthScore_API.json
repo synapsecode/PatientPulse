@@ -1,0 +1,1867 @@
+{
+	"info": {
+		"_postman_id": "ec4cccd9-0309-4246-a62e-d10a047b501f",
+		"name": "HealthScore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7374991",
+		"_collection_link": "https://winter-spaceship-780661.postman.co/workspace/MyWorkspace~6194dfe2-0e83-4b7f-8546-f47409b3b282/collection/7374991-ec4cccd9-0309-4246-a62e-d10a047b501f?action=share&source=collection_link&creator=7374991"
+	},
+	"item": [
+		{
+			"name": "internal",
+			"item": [
+				{
+					"name": "getResultType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getResultType",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getResultType"
+							]
+						},
+						"description": "This API endpoint is used to retrieve a list of result types. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getResultType`.\n\n### Request Parameters\n\nThis endpoint does not require any request parameters.\n\n### Response\n\nThe response has a status code of 200, indicating a successful response. The response body included the following data:\n\n``` json\n{\n    \"data\": [\n        {\n            \"resultTypeCode\": \"N\",\n            \"resultTypeName\": \"Numeric\",\n            \"resultTypeEId\": \"\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": true,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false\n        },\n        {\n            \"resultTypeCode\": \"T\",\n            \"resultTypeName\": \"Text\",\n            \"checked\": false,\n            \"text\": true,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"R\",\n            \"resultTypeName\": \"Rich Text\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": true,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"D\",\n            \"resultTypeName\": \"Date Picker\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": true,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"P\",\n            \"resultTypeName\": \"Drop Down\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": true,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"O\",\n            \"resultTypeName\": \"Total\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": true,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"M\",\n            \"resultTypeName\": \"Multi-Select\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": true,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"E\",\n            \"resultTypeName\": \"Decimal\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": true,\n            \"link\": false,\n            \"formulaFlg\": false,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        },\n        {\n            \"resultTypeCode\": \"FRM\",\n            \"resultTypeName\": \"Formula\",\n            \"checked\": false,\n            \"text\": false,\n            \"richtext\": false,\n            \"dropDown\": false,\n            \"number\": false,\n            \"datePicker\": false,\n            \"expression\": false,\n            \"multiSelect\": false,\n            \"decimal\": false,\n            \"link\": false,\n            \"formulaFlg\": true,\n            \"normFlg\": false,\n            \"resultTypeEId\": \"\"\n        }\n    ],\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\n`resultTypeCode` field holds the result type code\n\n`resultTypeName` field holds the name of the result type\n\n`resultTypeEId` field holds the unique ID of the result type"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getResultType",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getResultType"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getAssessmentScaleType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getAssessmentScaleType",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getAssessmentScaleType"
+							]
+						},
+						"description": "This API endpoint is used to retrieve the assessment scale types. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getAssessmentScaleType`.\n\n### Request Parameters\n\nThis endpoint does not require any request parameters.\n\n### Response\n\nThe response received with status code of 200. The response body contained the following data:\n\n``` json\n{\n    \"data\": [\n        {\n            \"assessmentScaleTypeCode\": \"\",\n            \"assessmentScaleTypeName\": \"\",\n            \"assessmentScaleTypeEId\": \"\"\n        }\n    ],\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\nThe `data` field in the response body is an array of objects, where each object represents an assessment scale type. Each assessment scale type object has the following properties:\n\n- `assessmentScaleTypeCode`: The code of the assessment scale type.\n- `assessmentScaleTypeName`: The name of the assessment scale type.\n- `assessmentScaleTypeEId`: The ID for the assessment scale type."
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getAssessmentScaleType",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getAssessmentScaleType"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getReportType",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getReportType",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getReportType"
+							]
+						},
+						"description": "This API endpoint is used to retrieve a list of assessment templates. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getReportType`.\n\n### Request Parameters\n\nThis endpoint does not require any request parameters.\n\n### Response\n\nThe response has a status code of 200, indicating a successful response. The response body included the following data:\n\n``` json\n{\n    \"data\": [\n        {\n            \"reportTypeDesc\": \"RichText_Template\",\n            \"reportTypeEId\": \"\"\n        },\n        {\n            \"reportTypeDesc\": \"Table_Template\",\n            \"reportTypeEId\": \"\"\n        }\n    ],\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\n`reportTypeDesc` field holds the name of the assessment template type\n\n`reportTypeEId` field holds the unique ID of the assessment template type"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getReportType",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getReportType"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "vitals",
+			"item": [
+				{
+					"name": "patientVitals",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/patientVitals?patientEId=ONeqqJDqZ4JYnEReeC-fpQ==",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"patientVitals"
+							],
+							"query": [
+								{
+									"key": "patientEId",
+									"value": "ONeqqJDqZ4JYnEReeC-fpQ=="
+								}
+							]
+						},
+						"description": "This API endpoint is used to retrieve the vitals of a patient. It is an HTTP GET request to the endpoint `{{baseUrl}}{{mobileAPIversion}}/patientVitals`.\n\n#### Request\n\nThe request requires the `patientEId` parameter to be provided, which is the unique identifier of the patient.\n\n#### Response\n\n``` json\n{\n    \"data\": [\n        {\n            \"code\": \"703421000\",\n            \"name\": \"Temperature\",\n            \"measurementUnit\": \"oF\",\n            \"measurementId\": 258712004,\n            \"value\": \"69.00\",\n            \"createdDate\": 1699931923000,\n            \"createdBy\": \"7004032665\",\n            \"visitVitalsEId\": \"\",\n            \"eid\": \"\"\n       } \n    ],\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\nThe response body contains a JSON object with the following properties:\n\n- `data`: An array of objects representing the vitals of the patient. Each object has the following properties:\n    \n    - `code`: The code associated with the vital.\n    - `name`: The name of the vital.\n        \n    - `measurementUnit`: The unit of measurement for the vital.\n    - `measurementId`: The ID of the measurement.\n    - `value`: The value of the vital.\n    - `createdDate`: The date the vital was created.\n    - `createdBy`: The user who created the vital.\n        \n    - `visitVitalsId`: The ID of the visit vital.\n    - `eid`:Unique ID of the Vital\n        \n- `errors`: Any errors that occurred during the execution of the request. In the last execution, no errors were reported.\n- `status`: A boolean indicating the status of the request. In the last execution, the status was `true`, indicating a successful request.\n- `errorCode`: An error code, if applicable. In the last execution, no error code was reported.\n- `message`: A message associated with the request. In the last execution, no message was reported.\n    \n\nPlease note that the specific values of the vitals and other properties may vary in each response."
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/patientVitals?patientEId=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"patientVitals"
+									],
+									"query": [
+										{
+											"key": "patientEId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "updatepatientVitals (!)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"updatedVitals\": [\n    {\n        \"eid\":\"\",\n        \"visitEId\": \"fElhaw7OscR_L8y-7XeOyg==\",\n        \"code\": \"405176005\",\n        \"value\": \"90\",\n        \"measurementId\": 258797006\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/updatePatientVitals",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"updatePatientVitals"
+							]
+						},
+						"description": "This API endpoint is used to update the vital information of a patient. It is an HTTP POST request that should be sent to the following URL: `{{baseUrl}}{{mobileAPIversion}}/updatePatientVitals`.\n\n#### Request\n\nThe request should include the necessary parameters to update the patient's vital information. The response will contain information about the success or failure of the update operation.\n\n``` json\n{\n  \"updatedVitals\": [\n    {\n      \"eid\": \"s==\",\n      \"code\": \"703421000\",\n      \"value\": 90,\n      \"visitEId\": \"\",\n      \"measurementId\": 258712004\n    },\n    {\n      \"eid\": \"s\",\n      \"code\": \"271649006\",\n      \"value\": 120,\n      \"visitEId\": \"\",\n      \"measurementId\": 259018001\n    },\n  ]\n}\n\n ```\n\n#### Response\n\nThe response body contains the following JSON data:\n\n```\n{\n    \"data\": null,\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"examples\": {\n    \"updatepatientVitals\": {\n      \"value\": \"{{vitalsRequestObject}}\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/updatePatientVitals",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"updatePatientVitals"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "assessment",
+					"item": [
+						{
+							"name": "addAssessmentScale (!)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"departmentEId\": \"65Ae41GrZIqBYgkw9YK-oQ==\",\n   \"assessmentDesc\": \"TestAssessment #1\",\n   \"assessmentScaleTypeCd\": \"GENRL\",\n   \"items\": [\n      {\n         \"displayTxt\": \"Test Assessment Question 1\",\n         \"resultTypeEId\": \"0000000001\",\n         \"dropDownList\": [\n        {\n          \"displayTxt\": \"A\"\n        },\n        {\n          \"displayTxt\": \"B\"\n        }\n       ]\n      }\n   ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/addAssessmentScale",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"addAssessmentScale"
+									]
+								},
+								"description": "This API endpoint is used to create a new assessment for a department. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/addAssessmentScale`.\n\n### Request Payload\n\n``` json\n{\n   \"departmentEId\": \"\",\n   \"assessmentDesc\": \"Name of the Assessment\",\n   \"assessmentScaleTypeCd\": \"GENRL\",\n   \"items\": [\n      {\n         \"displayTxt\": \"Assessment Question description\",\n         \"resultTypeEId\": \"sfsafsgwefvbtga\",\n         \"dropDownList\": [\n        {\n          \"displayTxt\": \"<option1>\"\n        },\n        {\n          \"displayTxt\": \"<option2>\"\n        }\n       ]\n      }\n   ]\n}\n\n ```\n\n`departmentEId`\\- the unique ID of th department for which the assessment has to be created. The value for this is obtained from getDepartment API mentioned above.\n\n`assessmentDesc`\\- defines the name of the assessment\n\n`assessmentScaleTypeCd`\\- use 'GENRL' as the code to define the general assessment.\n\n`items`\\- array of objects indicating the assessment items containing the name of the assessment item as `displayTxt` . and the result type ID binded to `resultTypeEId`. Select appropriate result type IDs for the scale items that is created. If the result type is 'Dropdown' or 'Multi-Select', the options can be added as array of objects to `dropDownList`.\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n   \"data\": null,\n   \"errors\": null,\n   \"status\": true,\n   \"errorCode\": null,\n   \"message\": \"Assessment scale added successfully.\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"addAssessmentScale\": {\n      \"value\": \"{{addAssessmentScalePayload}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/addAssessmentScale",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"addAssessmentScale"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "updateAssessmentStatus",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"eid\": \"7ft_HWa04uLmpiB77QVG0g==\",\n   \"active\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/updateAssessmentStatus",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"updateAssessmentStatus"
+									]
+								},
+								"description": "This API endpoint is used to retrieve the assessment scale types. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/updateAssessmentStatus`.\n\n### Request Payload\n\n``` json\n{\n   \"eid\": \"bjsdj\",\n   \"active\": false\n}\n\n ```\n\n`eid`\\- the unique ID of the assessment\n\n`active`\\- 'false' to deactivate an assessment. 'true' to activate the assessment\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n   \"data\": null,\n   \"errors\": null,\n   \"status\": true,\n   \"errorCode\": null,\n   \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"updateAssessmentStatus\": {\n      \"value\": \"{{updateAssessmentStatus}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/updateAssessmentStatus",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"updateAssessmentStatus"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "getAllscales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getAllScales",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getAllScales"
+									]
+								},
+								"description": "This API endpoint is used to retrieve all the assessment scales. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getAllScales`.\n\n### Request Parameters\n\nThis endpoint accepts optional request parameters\n\n`deptEId` to get scales based on the departmentEId\n\n`search` to search scales based on the search parameter passed\n\n### Response\n\nThe response received with status code of 200. The response body contained the following data:\n\n``` json\n`{\n   \"data\": [\n      {\n         \"eId\": \"mndnffn\",\n         \"assessmentDesc\": \"Assessment Name\",\n         \"createdBy\": \"admin\",\n         \"createdTs\": 1580923499000,\n         \"departmentEId\": \"djfndknfk\",\n         \"deptName\": \"Admin\",\n         \"active\": true,\n         \"reportType\": \"Table_Template\",\n         \"assessmentScaleTypeCd\": \"GENRL\",\n      }\n   ],\n   \"errors\": null,\n   \"status\": true,\n   \"errorCode\": null,\n   \"message\": null\n}`\n\n ```\n\nThe `data` field in the response body is an array of objects, where each object represents an assessment scale matching the search criteria. Each assessment object has the following properties:\n\n- eId: The unique ID of the assessment\n- assessmentDesc: The name of the assessment scale\n- createdBy: The name of the user by whom the assessment is created\n- createdTs: The timestamp at which the assessment is created\n- departmentEId: Unique ID of the department to which the assessment belongs to\n- deptName: Name of the department to which the assessment belongs to\n- reportType: Template name of the assessment\n- assessmentScaleTypeCd: assessment scale type code to which the assessment belongs to"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/getAllScales?deptEId=<string>&search=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getAllScales"
+											],
+											"query": [
+												{
+													"key": "deptEId",
+													"value": "<string>"
+												},
+												{
+													"key": "search",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "getAllActiveScales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getAllActiveScales?deptEId=65Ae41GrZIqBYgkw9YK-oQ==&Search=",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getAllActiveScales"
+									],
+									"query": [
+										{
+											"key": "deptEId",
+											"value": "65Ae41GrZIqBYgkw9YK-oQ=="
+										},
+										{
+											"key": "Search",
+											"value": ""
+										}
+									]
+								},
+								"description": "This API endpoint is used to retrieve all the active assessment scales. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getAllActiveScales`.\n\n### Request Parameters\n\nThis endpoint accepts optional request parameters\n\n`deptEId` to get scales based on the departmentEId\n\n`search` to search scales based on the search parameter passed\n\n### Response\n\nThe response received with status code of 200. The response body contained the following data:\n\n``` json\n`{\n   \"data\": [\n      {\n         \"eid\": \"mndnffn\",\n         \"assessmentDesc\": \"Assessment Name\",\n         \"createdBy\": \"admin\",\n         \"createdTs\": 1580923499000,\n         \"departmentEId\": \"djfndknfk\",\n         \"deptName\": \"Admin\",\n         \"active\": true,\n         \"reportType\": \"Table_Template\",\n         \"assessmentScaleTypeCd\": \"GENRL\",\n      }\n   ],\n   \"errors\": null,\n   \"status\": true,\n   \"errorCode\": null,\n   \"message\": null\n}`\n\n ```\n\nThe `data` field in the response body is an array of objects, where each object represents an assessment scale matching the search criteria. Each assessment object has the following properties:\n\n- eid: The unique ID of the assessment\n- assessmentDesc: The name of the assessment scale\n- createdBy: The name of the user by whom the assessment is created\n- createdTs: The timestamp at which the assessment is created\n- departmentEId: Unique ID of the department to which the assessment belongs to\n- deptName: Name of the department to which the assessment belongs to\n- reportType: Template name of the assessment\n- assessmentScaleTypeCd: assessment scale type code to which the assessment belongs to"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/getAllActiveScales?deptEId=<string>&Search=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getAllActiveScales"
+											],
+											"query": [
+												{
+													"key": "deptEId",
+													"value": "<string>"
+												},
+												{
+													"key": "Search",
+													"value": "<string>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "getScaleItems",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/getScaleWithItems/:eId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getScaleWithItems",
+										":eId"
+									],
+									"variable": [
+										{
+											"key": "eId",
+											"value": "7ft_HWa04uLmpiB77QVG0g=="
+										}
+									]
+								},
+								"description": "This API endpoint is used to retrieve the assessment scale items. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getScaleWithItems/{{eid}}`.\n\n### Request Parameters\n\nThis endpoint accepts {{eid}} as path parameter. `eid` is the unique ID of the assessment for which the scales items are to be fetched.\n\n### Response\n\nThe response received with status code of 200. The response body contained the following data:\n\n``` json\n {\n  \"data\": {\n    \"eid\": \"jvfnfnigir\",\n    \"assessmentDesc\": \"General assessment\",\n    \"createdBy\": \"admin\",\n    \"createdTs\": 1679573674000,\n    \"departmentEId\": \"asfnfjfsdfvn\",\n    \"deptName\": \"General Surgery\",\n    \"reportType\": \"Table_Template\",\n    \"assessmentScaleTypeCd\": \"GENRL\",\n    \"assessmentScaleTypeName\": \"General Assessment\",\n     \"items\": [\n      {\n        \"resultTypeId\": \"sfdfsadcscgg\",\n        \"resultTypeCode\": \"P\",\n        \"resultTypeName\": \"Drop Down\",\n        \"checked\": false,\n        \"text\": false,\n        \"richtext\": false,\n        \"dropDown\": true,\n        \"number\": false,\n        \"datePicker\": false,\n        \"expression\": false,\n        \"multiSelect\": false,\n        \"decimal\": false,\n        \"link\": false,\n        \"formulaFlg\": false,\n        \"normFlg\": false,\n        \"eid\": \"fsdfsdf\",\n        \"displayTxt\": \"Are you deaf?\",\n        \"createdBy\": \"admin\",\n        \"createdTs\": 1679573674000,\n        \"active\": true,\n        \"dropDownOptions\": [\n          \"Yes\",\n          \"No\"\n        ],\n        \"dropDownList\": [\n          {\n            \"scaleItemMasterId\": \"sdfdsdf\",\n            \"displayTxt\": \"Yes\",\n            \"numericVal\": null,\n            \"dependentScales\": [],\n            \"dependentObjects\": []\n          },\n          ],\n            \"subItems\": [],\n        \"secondaryItems\": [],\n        \"rowNo\": 2,\n        \"columnNo\": 1\n      },\n  \"errors\": null,\n  \"status\": true,\n  \"errorCode\": null,\n  \"message\": null\n}\n\n ```\n\nThe `data` field in the response body is an object. `data` contains `items`\\- array of objects where each object represents an assessment scale item. Each assessment scale item has the following properties:\n\n- resultTypeId: The result type unique ID of the scale item\n- resultTypeCode: The result type code of the scale item\n- resultTypeName: result type name of the scale item\n- eid: The unique ID of the scale item\n- displayTxt: Display text of the scale Item\n- dropDownOptions: if the result type is drop down or ,multi-select, then it will contain list of string values."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/getScaleWithItems/:eId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getScaleWithItems",
+												":eId"
+											],
+											"variable": [
+												{
+													"key": "eId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "updateScaleItem",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"eid\": \"JjO9RrXjn4lvKs22JiU42A==\",\n   \"items\": [\n      {\n        \"resultTypeEId\": \"GgZPTrxQVMpoCt2VeZtKYw==\",\n        \"eid\": \"T8wVPB7dtulCtKp4tbG-CA==\",\n        \"displayTxt\": \"Neck Rotation Right 80 steradians\"\n      }\n   ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/updateScaleItem",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"updateScaleItem"
+									]
+								},
+								"description": "This API endpoint is used to update a scale item. It is an HTTP POST request that should be sent to `{{baseUrl}}{{mobileAPIversion}}/updateScaleItem`.\n\n#### Request Payload:\n\n``` json\n{\n   \"eid\": \"vgvyy\",\n   \"items\": [\n      {\n         \"resultTypeEId\": \"ncjdncn\",\n         \"eid\": \"cdnjnvk\",\n         \"displayTxt\": \"item 1\",\n         \"referenceRange\": \"10 to 20\",\n         \"defaultValue\":\"15\",\n         \"minValue\":\"10\",\n         \"maxValue\":\"20\",\n         \"active\": true,\n         \"subItems\": [],\n         \"secondaryItems\": [],\n         \"rowNo\": 1,\n         \"columnNo\": 1\n      }\n   ]\n}\n\n ```\n\n`eid` - Unique ID of the assessment for which the scale item has to be updated.\n\n`items` array should have the assessment scale item object which has to be updated.\n\nFollowing attributes of the item object can be updated: `resultTypeEId, displayTxt, referenceRange, defaultValue, minValue, maxValue, active, rowNo, columnNo`\n\n#### Response:\n\nThe response will provide information about the success or failure of the update operation.\n\nHere is an example response for a successful update operation:\n\n``` json\n{\n   \"data\": null,\n   \"errors\": null,\n   \"status\": true,\n   \"errorCode\": null,\n   \"message\": \"Assessment scale item updated successfully.\"\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"updateScaleItem\": {\n      \"value\": \"{{updateScaleItem}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/updateScaleItem",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"updateScaleItem"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "addOptionForAssesmentResults (!)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"dropDownList\":[{\"displayTxt\":\"Vehicle\"}],\n\"eId\":\"hYFHumpMTwG9DkJYsOTrnw==\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/addOptionForAssesmentResults",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"addOptionForAssesmentResults"
+									]
+								},
+								"description": "This API endpoint is used to add more options to the drop down or multi-select result type scale items. It is an HTTP POST request that should be sent to `{{baseUrl}}{{mobileAPIversion}}/addOptionForAssesmentResults`.\n\n#### Request Payload:\n\n``` json\n{\n\"dropDownList\":[{\"displayTxt\":\"sample 4(4.0)\"}],\n\"eId\":\"ndjbfjdnkdsn\"\n}\n\n ```\n\n`eid` - Unique ID of the assessment scale item for which the options has to be added\n\n`dropDownList` array should have the list of objects with `displayTxt` decribing the name of the option to be added.\n\n#### Response:\n\nThe response will provide information about the success or failure of the add option operation.\n\n`data=true` indicates response for a successful add option operation.\n\n``` json\n{\n    \"data\": true,\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"addOptionForAssesmentResults\": {\n      \"value\": \"{{assesmentResultsPayload}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/addOptionForAssesmentResults",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"addOptionForAssesmentResults"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "removeOptionFromAssesmentResults (!)",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"dropDownList\":[{\"displayTxt\":\"Outpatient\"}],\n\"eId\":\"kPR_sns0cLBR773pDReW3w==\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/removeOptionFromAssessmentResults",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"removeOptionFromAssessmentResults"
+									]
+								},
+								"description": "This API endpoint is used to remove options from the drop down or multi-select result type scale items. It is an HTTP POST request that should be sent to `{{baseUrl}}{{mobileAPIversion}}/removeOptionFromAssessmentResults`.\n\n#### Request Payload:\n\n``` json\n{\n\"dropDownList\":[{\"displayTxt\":\"sample 4(4.0)\"}],\n\"eId\":\"ndjbfjdnkdsn\"\n}\n\n ```\n\n`eid` - Unique ID of the assessment scale item for which the options has to be added\n\n`dropDownList` array should have the list of objects with `displayTxt` decribing the name of the option to be removed.\n\n#### Response:\n\nThe response will provide information about the success or failure of the removal operation.\n\n`data=true` indicates response for a successful remove option operation.\n\n``` json\n{\n    \"data\": true,\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"removeOptionFromAssesmentResults\": {\n      \"value\": \"{{removeScalePayload}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/removeOptionFromAssessmentResults",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"removeOptionFromAssessmentResults"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "getAssessmentScaleForDepartment (?)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getAssessmentScaleForDepartment/:adminUserDeptId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getAssessmentScaleForDepartment",
+										":adminUserDeptId"
+									],
+									"variable": [
+										{
+											"key": "adminUserDeptId",
+											"value": "TTt00yl4XuVnrzPzZziI1g=="
+										}
+									]
+								},
+								"description": "This API endpoint is used to retrieve the list of assessment scale. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getAssessmentScaleForDepartment/{{deptEId}}`\n\n### Request Parameters\n\nThis endpoint accepts path parameters\n\n`deptEId` to get scales based on the departmentEId\n\n### Response\n\nThe response received with status code of 200. The response body contained the following data:\n\n``` json\n`{\n   \"data\": [\n      {\n         \"eId\": \"mndnffn\",\n         \"assessmentDesc\": \"Assessment Name\",\n         \"createdBy\": \"admin\",\n         \"createdTs\": 1580923499000,\n         \"departmentEId\": \"djfndknfk\",\n         \"deptName\": \"Admin\",\n         \"active\": true,\n         \"reportType\": \"Table_Template\",\n         \"assessmentScaleTypeCd\": \"GENRL\",\n      }\n   ],\n   \"errors\": null,\n   \"status\": true,\n   \"errorCode\": null,\n   \"message\": null\n}`\n\n ```\n\nThe `data` field in the response body is an array of objects, where each object represents an assessment scale matching the search criteria. Each assessment object has the following properties:\n\n- eId: The unique ID of the assessment\n    \n- assessmentDesc: The name of the assessment scale\n    \n- createdBy: The name of the user by whom the assessment is created\n    \n- createdTs: The timestamp at which the assessment is created\n    \n- departmentEId: Unique ID of the department to which the assessment belongs to\n    \n- deptName: Name of the department to which the assessment belongs to\n    \n- reportType: Template name of the assessment\n    \n- assessmentScaleTypeCd: assessment scale type code to which the assessment belongs to"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/getAssessmentScaleForDepartment/:adminUserDeptId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getAssessmentScaleForDepartment",
+												":adminUserDeptId"
+											],
+											"variable": [
+												{
+													"key": "adminUserDeptId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "getAllDepartments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getDepartment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getDepartment"
+							]
+						},
+						"description": "This API endpoint is used to retrieve a list of departments. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getDepartment`.\n\n### Request Parameters\n\nThis endpoint does not require any request parameters.\n\n### Response\n\nThe response has a status code of 200, indicating a successful response. The response body included the following data:\n\n``` json\n{\n  \"data\": [\n    {\n      \"deptName\": \"\",\n      \"deptEId\": \"\"\n    }\n  ],\n  \"errors\": null,\n  \"status\": true,\n  \"errorCode\": null,\n  \"message\": null\n}\n\n ```\n\n`deptName` field holds the name of the department\n\n`deptEId` field holds the unique ID of the department"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getDepartment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getDepartment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getUserDepartment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getUserDepartment",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getUserDepartment"
+							]
+						},
+						"description": "This API endpoint is used to retrieve the department of the logged in user. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getUserDepartment`.\n\n### Request Parameters\n\nThis endpoint does not require any request parameters.\n\n### Response\n\nThe response has a status code of 200, indicating a successful response. The response body included the following data:\n\n``` json\n{\n  \"data\": [\n    {\n      \"deptName\": \"\",\n      \"deptEId\": \"\"\n    }\n  ],\n  \"errors\": null,\n  \"status\": true,\n  \"errorCode\": null,\n  \"message\": null\n}\n\n ```\n\n`deptName` field holds the name of the department\n\n`deptEId` field holds the unique ID of the department"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getUserDepartment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getUserDepartment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getactivevisits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getactivevisits?visittype=OUT&pageNo=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getactivevisits"
+							],
+							"query": [
+								{
+									"key": "patientname",
+									"value": "Paxxxxx73876",
+									"disabled": true
+								},
+								{
+									"key": "visittype",
+									"value": "OUT",
+									"description": "Can be IN or OUT"
+								},
+								{
+									"key": "checkInDateFilter",
+									"value": "20231215",
+									"disabled": true
+								},
+								{
+									"key": "pageNo",
+									"value": "0"
+								}
+							]
+						},
+						"description": "API to get the list of out-patients currently at the hospital\n\n#### Request\n\nThe api accepts following request parameters\n\n`patientname- String floorno-String visittype-\"IN\" or \"OUT\" checkInDateFilter-Date in YYYY-MM-DD format pageNo- integer starting with 0`\n\n#### Response\n\n``` json\n{\n    \"totalResults\": 119,\n    \"filteredResultCount\": 67,\n    \"filteredresults\": [\n        {\n            \"checkInTime\": 1699461417000,\n            \"visitType\": \"Out Patient\",\n            \"visitEId\": \"\",\n            \"billEId\": \"\",\n            \"visitCode\": \"409\",\n            \"patientCode\": \"CSOFTSUPPORT/113/2000\",\n            \"patientName\": \"rome Some\",\n            \"gender\": \"Male\",\n            \"color\": \"#6945af\",\n            \"birthDate\": 507925800000,\n            \"patientEId\": \"\",\n            \"wardEId\": \"\",\n            \"visitDoctorEId\": \"\",\n            \"ageCategoryCode\": \"Adult\",\n            \"age\": 13.0\n        }\n    ],\n    \"poStatus\": null,\n    \"totalCost\": null,\n    \"reviewerId\": 0,\n    \"editFlg\": false,\n    \"status\": true,\n    \"storeName\": null\n}\n\n ```\n\nResponse returns the paginated result of currently checked-in patients with visit type 'OUT'. Response contains filteredresults- array of object with each object containing details about the patient."
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getactivevisits?critical=<string>&visittype=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getactivevisits"
+									],
+									"query": [
+										{
+											"key": "critical",
+											"value": "<string>"
+										},
+										{
+											"key": "visittype",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "patient",
+			"item": [
+				{
+					"name": "results",
+					"item": [
+						{
+							"name": "createPatientAssessment",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"patientEId\":\"ONeqqJDqZ4JYnEReeC-fpQ==\",\n    \"departmentEId\":\"65Ae41GrZIqBYgkw9YK-oQ==\",\n    \"visitEId\":\"UfKJFAorhF2Y9yB-S2oPJQ==\",\n    \"assessmentEId\":\"7ft_HWa04uLmpiB77QVG0g\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/createPatientAssessment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"createPatientAssessment"
+									]
+								},
+								"description": "This API endpoint is used to add an assessment to a patient. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/createPatientAssessment`.\n\n### Request Payload\n\n``` json\n{\n\"patientEId\":\"samlsamlmsa\",\n\"assessmentEId\":\"ncdndnjdn\",\n\"departmentEId\":\"cjncdncdsn\",\n\"visitEId\":\"cdbjdsbcjdsbj\"\n}\n\n ```\n\n`patientEId`\\- patient Unique ID for whom the assessment has to be added\n\n`visitEId`\\- patient visit Unique ID to which the assessment has to be added\n\n`departmentEId`\\- the unique ID of th department for which the assessment belongs to. The value for this is obtained from getUserDepartment API mentioned above.\n\nassessmentEId- the unique ID of the assessment that has to be added to a patient\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n    \"data\": {\n        \"patientAssessmentEId\": \"sasa\",\n        \"visitEId\": \"\",\n        \"patientEId\": \"\",\n        \"staffEId\": \"\",\n        \"assessmentEId\": \"\",\n        \"departmentEId\": \"\",\n        \"hospitalEId\": \"\"\n    },\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\nSuccess response will have patientAssessmentEId in the response indicating the unique ID of the patient assessment that gets created."
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"createPatientAssessment\": {\n      \"value\": \"{{createPatientAssessmentPayload}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/createPatientAssessment",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"createPatientAssessment"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "getPatientassessmentResulItemsById",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getPatientassessmentResultItemsById/:ptAssessmentEId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getPatientassessmentResultItemsById",
+										":ptAssessmentEId"
+									],
+									"variable": [
+										{
+											"key": "ptAssessmentEId",
+											"value": "m_hw61CpfHLfXbtqgQOVyw==",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "This API endpoint is used to get the list of assessment scale items for an assessment added to the patient. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getPatientassessmentResulItemsById/{{patientAssessmentEId}}`.\n\n### Request\n\nThe request accepts `patientAssessmentEId` as path parameter\n\n`patientAssessmentEId`\\- Unique ID of the patient assessment for which scale items has to be fetched.\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data with the list of assessment scale items of the patient assessment\n\n``` json\n{\n    \"data\": {\n        \"1\": [\n            {\n                \"resultTypeCode\": \"S\",\n                \"displayTxt\": \"Basic analysis\",\n                \"active\": true,\n                \"rowNo\": 1,\n                \"columnNo\": 1,\n                \"hospitalId\": 0,\n                \"hospitalEId\": \"\",\n                \"assessmentEId\": \"\",\n                \"patientResultEId\": \"\",\n                \"eid\": \"\"\n            }\n        ],\n        \"2\": [\n            {\n                \"resultTypeCode\": \"P\",\n                \"displayTxt\": \"Social smile\",\n                \"active\": true,\n                \"dropDownOptions\": [\n                    \"Yes\",\n                    \"No\"\n                ],\n                \"dropDownList\": [\n                    {\n                        \"scaleItemMasterId\": 0,\n                        \"displayTxt\": \"Yes\",\n                        \"numericVal\": null,\n                        \"dependentScales\": [],\n                        \"dependentObjects\": [],\n                        \"scaleItemMasterEId\": \"\"\n                    },\n                    {\n                        \"scaleItemMasterId\": 0,\n                        \"displayTxt\": \"No\",\n                        \"numericVal\": null,\n                        \"dependentScales\": [],\n                        \"dependentObjects\": [],\n                        \"scaleItemMasterEId\": \"\"\n                    }\n                ],\n                \"rowNo\": 1,\n                \"columnNo\": 1,\n                \"hospitalId\": 0,\n                \"hospitalEId\": \"\",\n                \"assessmentEId\": \"\",\n                \"patientResultEId\": \"\",\n                \"eid\": \"\"\n            }\n        ]\n    },\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/getPatientassessmentResultItemsById/:ptAssessmentEId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getPatientassessmentResultItemsById",
+												":ptAssessmentEId"
+											],
+											"variable": [
+												{
+													"key": "ptAssessmentEId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "updateAssessmentResultValue",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"patientResultEId\": \"PxGKNu-xzZQxuHi0YECDFg==\",\n    \"resultValue\":\"12\",\n    \"eid\":\"tWr7c69ntWAmQQOwqf78Og==\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/updateAssessmentResultValue",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"updateAssessmentResultValue"
+									]
+								},
+								"description": "This API endpoint is used to capture/update the result value for a patient assessment scale item. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/updateAssessmentResultValue`.\n\n### Request Payload\n\n``` json\n{\npatientResultEId: \"nsddbhdsbd\",\nresultValue:\"samlpe\",\neid:\"bdjsabjadbda\"\n}\n\n ```\n\npatientResultEId- Unique ID of the patient assessment scale result item for which the value is to be captured/updated.\n\nresultValue- the value of the patient assessment scale result item. It is a String data type.\n\neid- the unique ID of the assessment scale item\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n    \"data\": {\n        \"rowNo\": 2,\n        \"columnNo\": 1,\n        \"hospitalEId\": \"\",\n        \"resultValue\": \"samlpe\",\n        \"patientResultEId\": \"\"\n    },\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"updateAssessmentResultValue\": {\n      \"value\": \"{{updateAssessmentResultValuePayload}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/updateAssessmentResultValue",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"updateAssessmentResultValue"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "updatePatientAssessmentStatus-complete",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"patientAssessmentEId\":\"m_hw61CpfHLfXbtqgQOVyw==\",\n    \"status\":\"1\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/updatePatientAssessmentStatus",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"updatePatientAssessmentStatus"
+									]
+								},
+								"description": "This API endpoint is used to make the assessment status as completed for a patient assessment. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/updatePatientAssessmentStatus`.\n\n### Request Payload\n\n``` json\n{\n\"patientAssessmentEId\":\"ncjdjsdjdd\",\n\"status\":\"1\"\n}\n\n ```\n\npatientAssessmentEId- Unique ID of the patient assessment whose status has to be updated.\n\nstatus=1 indicates the assessment is completed and no more edits are allowed.\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n    \"data\": \n        {\n            \"assessmentDesc\": \"\",\n            \"createdBy\": \"\",\n            \"createdTs\": 1700005445000,\n            \"departmentName\": \"\",\n            \"assessedTs\": 1700005445000,\n            \"patientAssessmentEId\": \"\",\n            \"visitEId\": \"\",\n            \"patientEId\": \"\",\n            \"assessmentEId\": \"\",\n            \"departmentEId\": \"\",\n            \"hospitalEId\": \"\",\n        }\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"examples\": {\n    \"updatePatientAssessmentStatus-complete\": {\n      \"value\": \"{{updatePatientAssessmentStatusPayload}}\"\n    },\n    \"updatePatientAssessmentStatus-open\": {\n      \"value\": \"{{updatePatientAssessmentStatusPayload}}\"\n    }\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/updatePatientAssessmentStatus",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"updatePatientAssessmentStatus"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "getPatientAssessment (!)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getPatientAssessment/:assessmentPtVisitId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getPatientAssessment",
+										":assessmentPtVisitId"
+									],
+									"variable": [
+										{
+											"key": "assessmentPtVisitId",
+											"value": "UfKJFAorhF2Y9yB-S2oPJQ==",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "This API endpoint is used to get the list of assessments added to a patient. It sends an HTTP GET request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getPatientAssessment/{{visitEId}}`.\n\n### Request\n\nThe request accepts visitEId as path parameter\n\n`visitEId`\\- patient visit Unique ID to which the assessment has to be added\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data with the list of assessment added to the patient for the visitEId passed.\n\n``` json\n{\n    \"data\": [\n        {\n            \"assessmentDesc\": \"\",\n            \"createdBy\": \"\",\n            \"createdTs\": 1700005445000,\n            \"departmentName\": \"\",\n            \"assessedTs\": 1700005445000,\n            \"patientAssessmentEId\": \"\",\n            \"visitEId\": \"\",\n            \"patientEId\": \"\",\n            \"assessmentEId\": \"\",\n            \"departmentEId\": \"\",\n            \"hospitalEId\": \"\",\n        }\n    ],\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+							},
+							"response": [
+								{
+									"name": "Untitled Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/getPatientAssessment/:assessmentPtVisitId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"getPatientAssessment",
+												":assessmentPtVisitId"
+											],
+											"variable": [
+												{
+													"key": "assessmentPtVisitId"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "medications",
+			"item": [
+				{
+					"name": "removeMedications",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"medicationDetailsEId\": \"OO3L9bWCaZ3HGAA2B_EBLg==\",\n\t\"patientEId\": \"ONeqqJDqZ4JYnEReeC-fpQ==\",\n\t\"visitEId\": \"UfKJFAorhF2Y9yB-S2oPJQ==\"\n}\n",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/removeMedicationDetails",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"removeMedicationDetails"
+							]
+						},
+						"description": "This API request is used to remove medication details associated with a patient. It is an HTTP POST request sent to the endpoint `{{baseUrl}}{{mobileAPIversion}}/removeMedicationDetails`.\n\n#### Request\n\nPass the whole medication object which has to be removed as payload for this api as below.\n\n``` json\n{\n  \"medicationDetailsId\": 0,\n  \"visitNote\": null,\n  \"patientId\": 0,\n  \"id\": null,\n  \"drugId\": null,\n  \"pharamProductRefId\": 0,\n  \"drugName\": null,\n  \"dosage\": \"\",\n  \"brandName\": \"AZITHROMYCIN\",\n  \"drugBrandName\": \"\\nAZITHROMYCIN\",\n  \"drugForm\": null,\n  \"checkInTime\": 1699461417000,\n  \"drugFormRefId\": 0,\n  \"prescriptionflg\": 1,\n  \"days\": \"2 days\",\n  \"kmcRegNo\": \"0011\",\n  \"frequency\": \"1-0-1\",\n  \"frequencyRefId\": null,\n  \"comments\": \"After food\",\n  \"endTsNeedFlg\": 0,\n  \"endDate\": 1699554600000,\n  \"startedDate\": 1699468200000,\n  \"visitId\": 0,\n  \"doctorId\": 0,\n  \"doctoruserId\": 0,\n  \"doctorVisitId\": null,\n  \"createdTs\": 1699497046000,\n  \"active\": null,\n  \"createdBy\": \"Roshan\",\n  \"createdByUserFullName\": null,\n  \"doctorCode\": \"0011\",\n  \"hospitalId\": 0,\n  \"dose\": 0,\n  \"frequencyCode\": null,\n  \"frequencyNo\": 0,\n  \"feedVolumeMlPerKgValue\": null,\n  \"feedIncreaseFrequencyNo\": 0,\n  \"feedIncreaseDose\": 0,\n  \"feedTypes\": null,\n  \"feedRoutes\": null,\n  \"routeCode\": null,\n  \"infusionRate\": 0,\n  \"maxInfusionRate\": null,\n  \"medicationType\": null,\n  \"careplanInstruction\": null,\n  \"doseMeasureTxt\": null,\n  \"doseMeasureId\": null,\n  \"careplanInstructionId\": 0,\n  \"concentration\": 0,\n  \"flowRate\": 0,\n  \"vialConc\": 0,\n  \"correctionFact\": 0,\n  \"allowedLowerLimit\": null,\n  \"allowedUpperLimit\": null,\n  \"reconfirmLowerLimit\": null,\n  \"reconfirmUpperLimit\": null,\n  \"allowDecimalFlg\": null,\n  \"drugRule\": [],\n  \"medicationDetailsEId\": \"\",\n  \"patientEId\": \"\",\n  \"visitEId\": \"\",\n  \"visitNoteEId\": \"\",\n  \"doctoruserEId\": \"\",\n  \"doctorVisitEId\": null,\n  \"doctorEId\": \"\"\n}\n\n ```\n\n#### Response\n\n``` json\n{\n    \"data\": {\n       \n    },\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\nThe response body contains a JSON object with the following properties:\n\n- `data`: An object containing the details of the removed medication. The properties within this object include:\n    - `medicationDetailsId`: The ID of the removed medication details.\n    - `visitNote`: The visit note associated with the medication details.\n    - `patientId`: The ID of the patient associated with the medication details.\n    - `id`: The ID of the medication details.\n    - `drugId`: The ID of the drug associated with the medication details.\n    - `pharamProductRefId`: The reference ID of the pharmaceutical product associated with the medication details.\n    - `drugName`: The name of the drug.\n    - `dosage`: The dosage of the drug.\n    - `brandName`: The brand name of the drug.\n    - `drugBrandName`: The brand name of the drug.\n    - `drugForm`: The form of the drug.\n    - `checkInTime`: The check-in time for the medication details.\n    - `drugFormRefId`: The reference ID of the drug form.\n    - `prescriptionflg`: A flag indicating if a prescription is required for the medication.\n    - `days`: The duration of the medication in days.\n    - `kmcRegNo`: The KMC (Kangaroo Mother Care) registration number.\n    - `frequency`: The frequency of the medication.\n    - `frequencyRefId`: The reference ID of the medication frequency.\n    - `comments`: Additional comments or instructions for the medication.\n    - `endTsNeedFlg`: A flag indicating if an end timestamp is needed for the medication.\n    - `endDate`: The end date of the medication.\n    - `startedDate`: The start date of the medication.\n    - `visitId`: The ID of the visit associated with the medication details.\n    - `doctorId`: The ID of the doctor associated with the medication details.\n    - `doctoruserId`: The user ID of the doctor associated with the medication details.\n    - `doctorVisitId`: The ID of the doctor visit associated with the medication details.\n    - `createdTs`: The timestamp of when the medication details were created.\n    - `active`: A flag indicating if the medication details are active.\n    - `createdBy`: The user who created the medication details.\n    - `createdByUserFullName`: The full name of the user who created the medication details.\n    - `doctorCode`: The code of the doctor associated with the medication details.\n    - `hospitalId`: The ID of the hospital associated with the medication details.\n    - `dose`: The dose of the medication.\n    - `frequencyCode`: The code of the medication frequency.\n    - `frequencyNo`: The frequency number of the medication.\n    - `feedVolumeMlPerKgValue`: The volume of feed in milliliters per kilogram.\n    - `feedIncreaseFrequencyNo`: The frequency number for increasing the feed.\n    - `feedIncreaseDose`: The increased dose of the feed.\n    - `feedTypes`: The types of feed.\n    - `feedRoutes`: The routes for administering the feed.\n    - `routeCode`: The code of the feed route.\n    - `infusionRate`: The infusion rate of the medication.\n    - `maxInfusionRate`: The maximum infusion rate of the medication.\n    - `medicationType`: The type of medication.\n    - `careplanInstruction`: The care plan instruction for the medication.\n    - `doseMeasureTxt`: The text representation of the dose measurement.\n    - `doseMeasureId`: The ID of the dose measurement.\n    - `careplanInstructionId`: The ID of the care plan instruction.\n    - `concentration`: The concentration of the medication.\n    - `flowRate`: The flow rate of the medication.\n    - `vialConc`: The concentration of the vial.\n    - `correctionFact`: The correction factor for the medication.\n    - `allowedLowerLimit`: The allowed lower limit for the medication.\n    - `allowedUpperLimit`: The allowed upper limit for the medication.\n    - `reconfirmLowerLimit`: The reconfirmation lower limit for the medication.\n    - `reconfirmUpperLimit`: The reconfirmation upper limit for the medication.\n    - `allowDecimalFlg`: A flag indicating if decimal values are allowed for the medication.\n    - `drugRule`: An array of drug rules associated with the medication.\n    - `medicationDetailsEId`: The external ID of the medication details.\n    - `patientEId`: The external ID of the patient.\n    - `visitEId`: The external ID of the visit.\n    - `visitNoteEId`: The external ID of the visit note.\n    - `doctoruserEId`: The external ID of the doctor user.\n    - `doctorVisitEId`: The external ID of the doctor visit.\n    - `doctorEId`: The external ID of the doctor.\n- `errors`: Any errors that occurred during the execution of the request.\n- `status`: A boolean indicating the status of the request. `true` indicates the medication removal is success.\n    \n- `errorCode`: The error code, if any.\n- `message`: A message associated with the response.\n    \n\nPlease note that the specific values of the properties may vary and are not included in this description for security and privacy reasons."
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"examples\": {\n    \"removeMedications\": {\n      \"value\": \"{{removeMedications}}\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/removeMedicationDetails",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"removeMedicationDetails"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "addMedications",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"startedDate\": \"2023-11-14T09:55:55.678Z\",\n  \"days\": 20,\n  \"prescriptionflg\": 1,\n  \"brandName\": \"DOLO650\",\n  \"frequency\": \"1-1-1\",\n  \"visitEId\": \"UfKJFAorhF2Y9yB-S2oPJQ==\",\n  \"patientEId\": \"ONeqqJDqZ4JYnEReeC-fpQ==\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/addMedicationDetails",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"addMedicationDetails"
+							]
+						},
+						"description": "This API endpoint allows you to add medication details for a patient. It is an HTTP POST request to `{{baseUrl}}{{mobileAPIversion}}/addMedicationDetails`.\n\n#### Request\n\n``` json\n{\n  \"startedDate\": \"2023-11-14T09:55:55.678Z\",\n  \"days\": 20,\n  \"prescriptionflg\": 1,\n  \"brandName\": \"C6Q_2023-11-14T09:55:55.678Z\",\n  \"frequency\": \"1-1-1\",\n  \"visitEId\": \"\",\n  \"patientEId\": \"\"\n}\n\n ```\n\nThe request should include the necessary parameters to add the medication details.\n\n#### Response\n\nThe response body contains the following information:\n\n``` json\n{\n    \"data\": {\n        \"medicationDetailsId\": 0,\n        \"visitNote\": null,\n        \"patientId\": 0,\n        \"id\": null,\n        \"drugId\": null,\n        \"pharamProductRefId\": null,\n        \"drugName\": null,\n        \"dosage\": \"\",\n        \"brandName\": \"\",\n        \"drugBrandName\": null,\n        \"drugForm\": null,\n        \"checkInTime\": null,\n        \"drugFormRefId\": null,\n        \"prescriptionflg\": 0,\n        \"days\": \"\",\n        \"kmcRegNo\": null,\n        \"frequency\": \"\",\n        \"frequencyRefId\": null,\n        \"comments\": null,\n        \"endTsNeedFlg\": 0,\n        \"endDate\": 0,\n        \"startedDate\": 0,\n        \"visitId\": 0,\n        \"doctorId\": 0,\n        \"doctoruserId\": 0,\n        \"doctorVisitId\": null,\n        \"createdTs\": 0,\n        \"active\": null,\n        \"createdBy\": \"\",\n        \"createdByUserFullName\": null,\n        \"doctorCode\": null,\n        \"hospitalId\": 0,\n        \"dose\": 0,\n        \"frequencyCode\": null,\n        \"frequencyNo\": 0,\n        \"feedVolumeMlPerKgValue\": null,\n        \"feedIncreaseFrequencyNo\": 0,\n        \"feedIncreaseDose\": 0,\n        \"feedTypes\": null,\n        \"feedRoutes\": null,\n        \"routeCode\": null,\n        \"infusionRate\": 0,\n        \"maxInfusionRate\": null,\n        \"medicationType\": null,\n        \"careplanInstruction\": null,\n        \"doseMeasureTxt\": null,\n        \"doseMeasureId\": null,\n        \"careplanInstructionId\": 0,\n        \"concentration\": 0,\n        \"flowRate\": 0,\n        \"vialConc\": 0,\n        \"correctionFact\": 0,\n        \"allowedLowerLimit\": null,\n        \"allowedUpperLimit\": null,\n        \"reconfirmLowerLimit\": null,\n        \"reconfirmUpperLimit\": null,\n        \"allowDecimalFlg\": null,\n        \"drugRule\": [],\n        \"medicationDetailsEId\": \"\",\n        \"patientEId\": \"\",\n        \"visitEId\": \"\",\n        \"visitNoteEId\": null,\n        \"doctoruserEId\": \"\",\n        \"doctorVisitEId\": \"\",\n        \"doctorEId\": \"\"\n    },\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```\n\nPlease note that the response body contains the `data` field, which includes various properties related to the medication details. The values of these properties are specific to the request."
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"examples\": {\n    \"addMedications\": {\n      \"value\": \"{{addMedicationsPayload}}\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/addMedicationDetails",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"addMedicationDetails"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getMedications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/getCurrentMedicationDetails?patientEId=ONeqqJDqZ4JYnEReeC-fpQ==",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getCurrentMedicationDetails"
+							],
+							"query": [
+								{
+									"key": "patientEId",
+									"value": "ONeqqJDqZ4JYnEReeC-fpQ=="
+								}
+							]
+						},
+						"description": "This API endpoint retrieves the current medication details for a specific patient. It sends an HTTP GET request to the following URL: `{{baseUrl}}{{mobileAPIversion}}/getCurrentMedicationDetails?patientEId={{patientEId}}`.\n\n#### Response\n\n``` json\n{\n    \"data\": [\n        {\n            \"medicationDetailsId\": 0,\n            \"visitNote\": null,\n            \"patientId\": 0,\n            \"id\": null,\n            \"drugId\": null,\n            \"pharamProductRefId\": 0,\n            \"drugName\": null,\n            \"dosage\": \"\",\n            \"brandName\": \"AZITHROMYCIN\",\n            \"drugBrandName\": \"\\nAZITHROMYCIN\",\n            \"drugForm\": null,\n            \"checkInTime\": 1699461417000,\n            \"drugFormRefId\": 0,\n            \"prescriptionflg\": 1,\n            \"days\": \"2 days\",\n            \"kmcRegNo\": \"0011\",\n            \"frequency\": \"1-0-1\",\n            \"frequencyRefId\": null,\n            \"comments\": \"After food\",\n            \"endTsNeedFlg\": 0,\n            \"endDate\": 1699554600000,\n            \"startedDate\": 1699468200000,\n            \"visitId\": 0,\n            \"doctorId\": 0,\n            \"doctoruserId\": 0,\n            \"doctorVisitId\": null,\n            \"createdTs\": 1699497046000,\n            \"active\": null,\n            \"createdBy\": \"Roshan\",\n            \"createdByUserFullName\": null,\n            \"doctorCode\": \"0011\",\n            \"hospitalId\": 0,\n            \"dose\": 0.0,\n            \"frequencyCode\": null,\n            \"frequencyNo\": 0.0,\n            \"feedVolumeMlPerKgValue\": null,\n            \"feedIncreaseFrequencyNo\": 0,\n            \"feedIncreaseDose\": 0.0,\n            \"feedTypes\": null,\n            \"feedRoutes\": null,\n            \"routeCode\": null,\n            \"infusionRate\": 0.0,\n            \"maxInfusionRate\": null,\n            \"medicationType\": null,\n            \"careplanInstruction\": null,\n            \"doseMeasureTxt\": null,\n            \"doseMeasureId\": null,\n            \"careplanInstructionId\": 0,\n            \"concentration\": 0.0,\n            \"flowRate\": 0.0,\n            \"vialConc\": 0.0,\n            \"correctionFact\": 0.0,\n            \"allowedLowerLimit\": null,\n            \"allowedUpperLimit\": null,\n            \"reconfirmLowerLimit\": null,\n            \"reconfirmUpperLimit\": null,\n            \"allowDecimalFlg\": null,\n            \"drugRule\": [],\n            \"medicationDetailsEId\": \"\",\n            \"patientEId\": \"\",\n            \"visitEId\": \"\",\n            \"visitNoteEId\": \"\",\n            \"doctoruserEId\": \"\",\n            \"doctorVisitEId\": null,\n            \"doctorEId\": \"\"\n        }  \n    ],\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n\n ```\n\nThe response received from the last execution of this request had a status code of 200, indicating a successful response. The response body contained a JSON object with the following properties:\n\n- `data`: An array containing medication details for the patient. Each object in the array has the following properties:\n    - `medicationDetailsId`: The ID of the medication details.\n    - `visitNote`: The visit note associated with the medication.\n    - `patientId`: The ID of the patient.\n    - `id`: The ID of the medication.\n    - `drugId`: The ID of the drug.\n    - `pharamProductRefId`: The ID of the pharmacy product reference.\n    - `drugName`: The name of the drug.\n    - `dosage`: The dosage of the medication.\n    - `brandName`: The brand name of the medication.\n    - `drugBrandName`: The brand name of the drug.\n    - `drugForm`: The form of the drug.\n    - `checkInTime`: The check-in time.\n    - `drugFormRefId`: The ID of the drug form reference.\n    - `prescriptionflg`: A flag indicating whether the medication requires a prescription.\n    - `days`: The number of days the medication is prescribed for.\n    - `kmcRegNo`: The KMC registration number.\n    - `frequency`: The frequency of the medication.\n    - `frequencyRefId`: The ID of the frequency reference.\n    - `comments`: Additional comments for the medication.\n    - `endTsNeedFlg`: A flag indicating whether an end timestamp is needed.\n    - `endDate`: The end date of the medication.\n    - `startedDate`: The start date of the medication.\n    - `visitId`: The ID of the visit.\n    - `doctorId`: The ID of the doctor.\n    - `doctoruserId`: The ID of the doctor's user.\n    - `doctorVisitId`: The ID of the doctor's visit.\n    - `createdTs`: The timestamp of when the medication was created.\n    - `active`: A flag indicating whether the medication is active.\n    - `createdBy`: The user who created the medication.\n    - `createdByUserFullName`: The full name of the user who created the medication.\n    - `doctorCode`: The code of the doctor.\n    - `hospitalId`: The ID of the hospital.\n    - `dose`: The dose of the medication.\n    - `frequencyCode`: The code of the frequency.\n    - `frequencyNo`: The frequency number.\n    - `feedVolumeMlPerKgValue`: The volume of feed in milliliters per kilogram.\n    - `feedIncreaseFrequencyNo`: The frequency number for feed increase.\n    - `feedIncreaseDose`: The dose for feed increase.\n    - `feedTypes`: The types of feed.\n    - `feedRoutes`: The routes of feed.\n    - `routeCode`: The code of the route.\n    - `infusionRate`: The infusion rate.\n    - `maxInfusionRate`: The maximum infusion rate.\n    - `medicationType`: The type of medication.\n    - `careplanInstruction`: The care plan instruction for the medication.\n    - `doseMeasureTxt`: The text for the dose measure.\n    - `doseMeasureId`: The ID of the dose measure.\n    - `careplanInstructionId`: The ID of the care plan instruction.\n    - `concentration`: The concentration of the medication.\n    - `flowRate`: The flow rate.\n    - `vialConc`: The concentration of the vial.\n    - `correctionFact`: The correction factor.\n    - `allowedLowerLimit`: The allowed lower limit.\n    - `allowedUpperLimit`: The allowed upper limit.\n    - `reconfirmLowerLimit`: The reconfirm lower limit.\n    - `reconfirmUpperLimit`: The reconfirm upper limit.\n    - `allowDecimalFlg`: A flag indicating whether decimal values are allowed.\n    - `drugRule`: An array of drug rules.\n    - `medicationDetailsEId`: The EID of the medication details.\n    - `patientEId`: The EID of the patient.\n    - `visitEId`: The EID of the visit.\n    - `visitNoteEId`: The EID of the visit note.\n- `errors`: Any errors that occurred during the execution of the request.\n- `status`: A boolean value indicating the status of the request.\n- `errorCode`: The error code, if any.\n- `message`: A message associated with the request."
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/getCurrentMedicationDetails?patientEId=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getCurrentMedicationDetails"
+									],
+									"query": [
+										{
+											"key": "patientEId",
+											"value": "<string>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "history",
+			"item": [
+				{
+					"name": "saveAssessmentToProgressTimeline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"patientAssessmentEId\":\"UfKJFAorhF2Y9yB-S2oPJQ==\",\n        \"patientEId\":\"ONeqqJDqZ4JYnEReeC-fpQ==\",\n        \"visitEId\":\"fElhaw7OscR_L8y-7XeOyg==\"\n    }\n]",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/saveAssessmentToProgressTimeline",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"saveAssessmentToProgressTimeline"
+							]
+						},
+						"description": "This API endpoint is used to save the patient assessment along with its result values as a summary to Progres TimeLine (PTL) of the patient's Visit. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/saveAssessmentToProgressTimeline`.\n\n### Request Payload\n\n``` json\n[\n{\"patientAssessmentEId\":\"bdjsabjadb\",\n\"patientEId\":\"ndlndakn\",\n\"visitEId\":\"nldnjfds\"\n}\n]\n\n ```\n\npatientAssessmentEId- Unique ID of the patient assessment whose summary has to be added to PTL.\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n    \"data\": null,\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": \"Saved To ProgressTimeline\"\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"examples\": {\n    \"saveAssessmentToProgressTimeline\": {\n      \"value\": \"{{saveAssessmentToProgressTimelinePayload}}\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/saveAssessmentToProgressTimeline",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"saveAssessmentToProgressTimeline"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "getPatientProgressHistory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"visitEId\":\"UfKJFAorhF2Y9yB-S2oPJQ==\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/getPatientProgressHistory",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"getPatientProgressHistory"
+							]
+						},
+						"description": "This API endpoint is used to get list of Progres TimeLine (PTL) records of the patient's Visit. It sends an HTTP POST request to the specified URL: `{{baseUrl}}{{mobileAPIversion}}/getPatientProgressHistory`.\n\n### Request Payload\n\n``` json\n{\n    \"fromDate\": null,\n    \"visitEId\":\"dsds==\",\n    \"toDate\": null\n}\n\n ```\n\nvisitEId- Unique ID of the patient visit whose PTL records are to be fetched.\n\nfromDate, toDate are date fields which accepts Date values.\n\n### Response\n\nThe response received with a status code of 200. The response body contained the following data:\n\n``` json\n{\n    \"data\": {\n        \"dateFilters\": {\n            \n            \"fromDate\": 1630595469000,\n            \"toDate\": 1699281221000,\n            \n        },\n        \"progressHistory\": [\n            {\n                \"type\": \"note\",\n                \"progressNoteDesc\": \"<p>hello hai test ptl</p>\",\n                \"createdBy\": \"admin\",\n                \"createdByCode\": \"admin@thehealthscore.com\",\n                \"createdTs\": 1699250412000,\n                \"modifiedBy\": null,\n                \"modifiedTs\": null,\n                \"staffTypeCode\": \"AO\",\n                \"detailEId\": \"gr5uNcSy+N42nHD68yfs5Q==\",\n                \"visitEId\": \"kysxyOu7bvIIp2CliKrhxA==\",\n                \"sourceEId\": \"fElhaw7OscR/L8y+7XeOyg==\",\n                \"templateEId\": \"fElhaw7OscR/L8y+7XeOyg==\",\n                \"activityEId\": \"fElhaw7OscR/L8y+7XeOyg==\",\n               \n            }\n        ]\n    },\n    \"errors\": null,\n    \"status\": true,\n    \"errorCode\": null,\n    \"message\": null\n}\n\n ```"
+					},
+					"response": [
+						{
+							"name": "Untitled Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"examples\": {\n    \"getPatientProgressHistory\": {\n      \"value\": \"{{getPatientProgressHistory}}\\r\\n\"\n    }\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/getPatientProgressHistory",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"getPatientProgressHistory"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://hackathon.hsdevonline.com/HSLogin/oauth/token?grant_type=password&username=866003375&password=0000&hospCode=CSOFTSUPPORT&client_secret=$2a$10$iNssdGZSSfsmS9lzireKNelKNKDNQ/octZGZ.qh9nGy1u7St2ChC2&client_id=hackathon",
+					"protocol": "https",
+					"host": [
+						"hackathon",
+						"hsdevonline",
+						"com"
+					],
+					"path": [
+						"HSLogin",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "password"
+						},
+						{
+							"key": "username",
+							"value": "866003375"
+						},
+						{
+							"key": "password",
+							"value": "0000"
+						},
+						{
+							"key": "hospCode",
+							"value": "CSOFTSUPPORT"
+						},
+						{
+							"key": "client_secret",
+							"value": "$2a$10$iNssdGZSSfsmS9lzireKNelKNKDNQ/octZGZ.qh9nGy1u7St2ChC2"
+						},
+						{
+							"key": "client_id",
+							"value": "hackathon"
+						}
+					]
+				},
+				"description": "This api returns the bearer token in the response that can be utilised as Authorization parameter for other API calls\n\nthe specified URL: `{{hsLoginBaseUrl}}/oauth/token?grant_type=password&username={{adminMobileNo}}&password={{mpin}}&hospCode={{hospitalCode}}&client_secret={{client_secret}}&client_id={{client_id}}`\n\n``` json\n{\n    \"access_token\": \"<token>\",\n    \"token_type\": \"bearer\",\n    \"expires_in\": 2591999,\n    \"scope\": \"read write\",\n    \"hospitalCode\": \"<hospitalCode>\",\n    \"email\": \"email\"\n}\n\n ```"
+			},
+			"response": [
+				{
+					"name": "Untitled Response",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oauth/token?grant_type=<string>&username=<string>&password=<string>&hospCode=<string>&client_secret=<string>&client_id=<string>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							],
+							"query": [
+								{
+									"key": "grant_type",
+									"value": "<string>"
+								},
+								{
+									"key": "username",
+									"value": "<string>"
+								},
+								{
+									"key": "password",
+									"value": "<string>"
+								},
+								{
+									"key": "hospCode",
+									"value": "<string>"
+								},
+								{
+									"key": "client_secret",
+									"value": "<string>"
+								},
+								{
+									"key": "client_id",
+									"value": "<string>"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "f3d66f2f-d117-47d1-b2b2-29eca7fa6d5f",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://hackathon.hsdevonline.com/HS/mobile/V2",
+			"type": "string"
+		}
+	]
+}
