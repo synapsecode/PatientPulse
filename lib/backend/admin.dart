@@ -1,25 +1,46 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:patientpulse/backend/dioexecutor.dart';
 import 'package:patientpulse/backend/healthscore.dart';
+import 'package:patientpulse/backend/models/admin.dart';
 import 'package:patientpulse/backend/models/department.dart';
 import 'package:patientpulse/backend/models/medication.dart';
 import 'package:patientpulse/backend/models/patient.dart';
 import 'package:patientpulse/backend/utils.dart';
 import 'package:patientpulse/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final currentPatient = StateProvider<PatientModel?>((ref) => null);
+final currentAdmin = StateProvider<AdminModel?>((ref) => null);
 
 class HSAdmin {
   static Future<void> login(String username, String password) async {
+    final prefs = await SharedPreferences.getInstance();
     final res = await DioExecutor.get(
       url: HSCreds.getLoginURL(username: username, password: password),
     );
     if (res.$2 != null) {
       return commonErrorHandler(res.$2!, null);
     }
-    final aT = res.$1!['access_token'];
-    gpc.read(bearerTokenProvider.notifier).state = aT;
-    print("Set Access Token: $aT");
+    final admin = AdminModel.fromMap(res.$1!);
+    gpc.read(currentAdmin.notifier).state = admin;
+    print('SavingPatientExtract => ${admin.serialize()}');
+    await prefs.setString('loggedin_admin', admin.serialize());
+  }
+
+  static logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    gpc.read(currentAdmin.notifier).state = null;
+    await prefs.remove('loggedin_admin');
+    print('Logged Out from Admin');
+  }
+
+  static tryAutoLogin() async {
+    final prefs = await SharedPreferences.getInstance();
+    final laSerialized = prefs.getString('loggedin_admin');
+    if (laSerialized == null) return;
+    final admin = AdminModel.fromSerialized(laSerialized);
+    gpc.read(currentAdmin.notifier).state = admin;
+    print('AutoLogged in as Admin(${admin.eid})');
   }
 
   static Future<List<DepartmentModel>> getAllDepartments() async {

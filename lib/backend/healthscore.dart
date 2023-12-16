@@ -4,8 +4,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:patientpulse/main.dart';
 
-final bearerTokenProvider = StateProvider<String?>((ref) => null);
-
 class HSCreds {
   static const String _target = 'https://hackathon.hsdevonline.com';
   static const String hsLoginURL = '$_target/HSLogin';

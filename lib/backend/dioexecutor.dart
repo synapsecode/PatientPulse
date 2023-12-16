@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:patientpulse/backend/admin.dart';
 import 'package:patientpulse/backend/healthscore.dart';
 import 'package:patientpulse/main.dart';
 
@@ -8,7 +9,7 @@ class DioExecutor {
   static final Dio dio = Dio();
 
   static initializeInterceptors() {
-    final accessToken = gpc.read(bearerTokenProvider);
+    final accessToken = gpc.read(currentAdmin)?.accessToken;
     dio.interceptors.clear(); //Clear Existing Interceptors
     //Logging Interceptor
 
