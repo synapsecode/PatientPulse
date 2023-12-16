@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:patientpulse/backend/admin.dart';
 
 final gpc = ProviderContainer();
 
@@ -38,7 +39,14 @@ class PatientPulseWrapper extends StatelessWidget {
         title: Text('Patient Pulse'),
       ),
       body: Column(
-        children: [],
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              HSAdmin.login('8660033751', '0000');
+            },
+            child: Text('Test Login'),
+          )
+        ],
       ),
     );
   }

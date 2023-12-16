@@ -7,13 +7,13 @@ import 'package:patientpulse/main.dart';
 class DioExecutor {
   static final Dio dio = Dio();
 
-  initializeInterceptors() {
+  static initializeInterceptors() {
     final accessToken = gpc.read(bearerTokenProvider);
     dio.interceptors.clear(); //Clear Existing Interceptors
     //Logging Interceptor
 
-    dio.interceptors
-        .add(LogInterceptor(requestBody: false, responseBody: true));
+    // dio.interceptors
+    //     .add(LogInterceptor(requestBody: false, responseBody: true));
     // Authentication Interceptor
 
     dio.interceptors.add(
@@ -29,7 +29,7 @@ class DioExecutor {
     );
   }
 
-  Future<DEResponse> get({
+  static Future<DEResponse> get({
     required String url,
   }) async {
     initializeInterceptors();
@@ -37,7 +37,7 @@ class DioExecutor {
     return await _exec(url: url, response: response);
   }
 
-  Future<DEResponse> post({
+  static Future<DEResponse> post({
     required String url,
     required Map data,
   }) async {
@@ -46,7 +46,7 @@ class DioExecutor {
     return await _exec(url: url, response: response);
   }
 
-  Future<DEResponse> delete({
+  static Future<DEResponse> delete({
     required String url,
   }) async {
     initializeInterceptors();
@@ -54,7 +54,7 @@ class DioExecutor {
     return await _exec(url: url, response: response);
   }
 
-  Future<DEResponse> put({
+  static Future<DEResponse> put({
     required String url,
     required Map data,
   }) async {
@@ -63,13 +63,13 @@ class DioExecutor {
     return await _exec(url: url, response: response);
   }
 
-  Future<DEResponse> _exec({
+  static Future<DEResponse> _exec({
     required String url,
     required Response response,
   }) async {
     try {
       if (response.statusCode == 200) {
-        final resdata = jsonDecode(response.data.toString()) as Map;
+        final resdata = response.data as Map;
         return (resdata, null);
       }
       return (
