@@ -42,6 +42,7 @@ class PatientPulseWrapper extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final cAdmin = ref.watch(currentAdmin);
     final cPat = ref.watch(currentPatient);
+    final aT = ref.watch(bearerTokenProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -56,6 +57,7 @@ class PatientPulseWrapper extends ConsumerWidget {
             SizedBox(height: 10),
             Text('Current Patient'),
             Text(cPat?.patientName ?? 'No Patient').size(40),
+            Text(aT.toString()).size(12).addTopMargin(10),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

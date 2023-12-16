@@ -10,10 +10,15 @@ import 'package:patientpulse/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final currentPatient = StateProvider<PatientModel?>((ref) => null);
+final bearerTokenProvider = StateProvider<String?>((ref) => null);
 final currentAdmin = StateProvider<AdminModel?>((ref) => null);
 
 class HSAdmin {
-  static Future<void> login(String username, String password) async {
+  static Future<void> login(
+    String username,
+    String password, {
+    bool accessTokenFetchOnly = false,
+  }) async {
     final prefs = await SharedPreferences.getInstance();
     final res = await DioExecutor.get(
       url: HSCreds.getLoginURL(username: username, password: password),
@@ -22,14 +27,21 @@ class HSAdmin {
       return commonErrorHandler(res.$2!, null);
     }
     final admin = AdminModel.fromMap(res.$1!);
-    gpc.read(currentAdmin.notifier).state = admin;
-    print('SavingPatientExtract => ${admin.serialize()}');
-    await prefs.setString('loggedin_admin', admin.serialize());
+    if (!accessTokenFetchOnly) {
+      gpc.read(currentAdmin.notifier).state = admin;
+      print('SavingPatientExtract => ${admin.serialize()}');
+      await prefs.setString('loggedin_admin', admin.serialize());
+    } else {
+      gpc.read(bearerTokenProvider.notifier).state = admin.accessToken;
+      await prefs.setString('admin_accesstoken', admin.accessToken);
+    }
   }
 
   static logout() async {
     final prefs = await SharedPreferences.getInstance();
     gpc.read(currentAdmin.notifier).state = null;
+    gpc.read(bearerTokenProvider.notifier).state = null;
+
     await prefs.remove('loggedin_admin');
     print('Logged Out from Admin');
   }

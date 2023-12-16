@@ -4,12 +4,15 @@ import 'package:dio/dio.dart';
 import 'package:patientpulse/backend/admin.dart';
 import 'package:patientpulse/backend/healthscore.dart';
 import 'package:patientpulse/main.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DioExecutor {
   static final Dio dio = Dio();
 
-  static initializeInterceptors() {
-    final accessToken = gpc.read(currentAdmin)?.accessToken;
+  static initializeInterceptors() async {
+    final prefs = await SharedPreferences.getInstance();
+    final accessToken = gpc.read(currentAdmin)?.accessToken ??
+        prefs.getString('admin_accesstoken');
     dio.interceptors.clear(); //Clear Existing Interceptors
     //Logging Interceptor
 
@@ -33,7 +36,7 @@ class DioExecutor {
   static Future<DEResponse> get({
     required String url,
   }) async {
-    initializeInterceptors();
+    await initializeInterceptors();
     final response = await dio.get(url);
     return await _exec(url: url, response: response);
   }
@@ -42,7 +45,7 @@ class DioExecutor {
     required String url,
     required Map data,
   }) async {
-    initializeInterceptors();
+    await initializeInterceptors();
     final response = await dio.post(url, data: data);
     return await _exec(url: url, response: response);
   }
@@ -50,7 +53,7 @@ class DioExecutor {
   static Future<DEResponse> delete({
     required String url,
   }) async {
-    initializeInterceptors();
+    await initializeInterceptors();
     final response = await dio.delete(url);
     return await _exec(url: url, response: response);
   }
@@ -59,7 +62,7 @@ class DioExecutor {
     required String url,
     required Map data,
   }) async {
-    initializeInterceptors();
+    await initializeInterceptors();
     final response = await dio.put(url, data: data);
     return await _exec(url: url, response: response);
   }

@@ -19,6 +19,8 @@ class HSPatient {
     gpc.read(currentPatient.notifier).state = patient;
     print('SavingPatientExtract => ${patient.serialize()}');
     await prefs.setString('loggedin_patient', patient.serialize());
+    print('Performing AccessTokenFetchOnly');
+    await HSAdmin.login('8660033751', '0000', accessTokenFetchOnly: true);
     return true;
   }
 
@@ -34,6 +36,8 @@ class HSPatient {
     final lpSerialized = prefs.getString('loggedin_patient');
     if (lpSerialized == null) return;
     final patient = PatientModel.fromSerialized(lpSerialized);
+    final adminAccessToken = prefs.getString('admin_accesstoken');
+    gpc.read(bearerTokenProvider.notifier).state = adminAccessToken;
     gpc.read(currentPatient.notifier).state = patient;
     print('AutoLogged in as Patient(${patient!.patientName})');
   }
