@@ -1,6 +1,7 @@
 import 'package:patientpulse/backend/admin.dart';
 import 'package:patientpulse/backend/dioexecutor.dart';
 import 'package:patientpulse/backend/healthscore.dart';
+import 'package:patientpulse/backend/models/history.dart';
 import 'package:patientpulse/backend/models/medication.dart';
 import 'package:patientpulse/backend/models/patient.dart';
 import 'package:patientpulse/backend/models/vital.dart';
@@ -53,10 +54,24 @@ class HSPatient {
     }
     final resdata = res.$1!;
     final vitals = resdata['data'];
-    return vitals.map((x) => VitalModel.fromModel(x)).toList();
+    return vitals.map((x) => VitalModel.fromMap(x)).toList();
   }
 
-  getHistory() async {}
+  static Future<List> getHistory() async {
+    final vid = gpc.read(currentPatient)!.latestVisitId;
+    final res = await DioExecutor.post(
+      url: '${HSCreds.baseURL}/getPatientProgressHistory',
+      data: {
+        'visitEId': vid,
+      },
+    );
+    if (res.$2 != null) {
+      return commonErrorHandler(res.$2!, <ProgressHistory>[]);
+    }
+    final resdata = res.$1!;
+    final history = resdata['data']['progressHistory'];
+    return history.map((x) => ProgressHistory.fromMap(x)).toList();
+  }
 
   getPatientAssessmentResult() {}
 

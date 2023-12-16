@@ -2,7 +2,7 @@ class ProgressHistory {
   final String title;
   final String message;
   final String doctorName;
-  final DateTime date;
+  final DateTime? date;
 
   ProgressHistory({
     required this.title,
@@ -12,12 +12,14 @@ class ProgressHistory {
   });
   factory ProgressHistory.fromMap(Map x) {
     return ProgressHistory(
-      title: x['progressHistory']['title'],
-      message: x['progressHistory']['message'],
-      doctorName: x['progressHistory']['doctorName'],
-      date: DateTime.fromMillisecondsSinceEpoch(
-        x['progressHistory']['createdTs'],
-      ),
+      title: x['title'] ?? 'Untitled',
+      message: x['message'] ?? 'unspecified message',
+      doctorName: x['doctorName'] ?? 'Unknown Doctor',
+      date: x['createdTs'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(
+              x['createdTs'],
+            )
+          : null,
     );
   }
 }

@@ -16,7 +16,7 @@ class VitalModel {
   bool get isValid => eid != null;
   bool get hasValue => value != null;
 
-  factory VitalModel.fromModel(Map x) {
+  factory VitalModel.fromMap(Map x) {
     return VitalModel(
       eid: x['eid'],
       name: x['name'],

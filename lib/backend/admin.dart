@@ -11,7 +11,7 @@ import 'package:patientpulse/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final currentPatient = StateProvider<PatientModel?>((ref) => null);
-final activePatientEId = StateProvider<String?>((ref) => null);
+final activePatient = StateProvider<PatientModel?>((ref) => null);
 final bearerTokenProvider = StateProvider<String?>((ref) => null);
 final currentAdmin = StateProvider<AdminModel?>((ref) => null);
 
@@ -73,12 +73,12 @@ class HSAdmin {
     final x = patientData
         .where((e) => e.patientName.toLowerCase() == fullName.toLowerCase());
     if (x.isEmpty) return false;
-    gpc.read(activePatientEId.notifier).state = x.first.patientEId;
+    gpc.read(activePatient.notifier).state = x.first;
     return true;
   }
 
   static void checkoutPatient() {
-    gpc.read(activePatientEId.notifier).state = null;
+    gpc.read(activePatient.notifier).state = null;
   }
 
   static createPatientAssessment() async {}
@@ -111,8 +111,8 @@ class HSAdmin {
         "brandName": brandName,
         "dosage": dosage,
         "frequency": "${freq.$1}-${freq.$2}-${freq.$3}",
-        "visitEId": gpc.read(currentPatient)!.latestVisitId,
-        "patientEId": gpc.read(currentPatient)!.patientEId,
+        "visitEId": gpc.read(activePatient)!.latestVisitId,
+        "patientEId": gpc.read(activePatient)!.patientEId,
       },
     );
     if (res.$2 != null) {

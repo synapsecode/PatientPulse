@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:patientpulse/backend/admin.dart';
+import 'package:patientpulse/backend/models/patient.dart';
 import 'package:patientpulse/backend/patients.dart';
 import 'package:patientpulse/extensions/extensions.dart';
 
@@ -43,7 +44,7 @@ class PatientPulseWrapper extends ConsumerWidget {
     final cAdmin = ref.watch(currentAdmin);
     final cPat = ref.watch(currentPatient);
     final aT = ref.watch(bearerTokenProvider);
-    final acP = ref.watch(activePatientEId);
+    final acP = ref.watch(activePatient);
 
     return Scaffold(
       appBar: AppBar(
@@ -59,7 +60,7 @@ class PatientPulseWrapper extends ConsumerWidget {
             SizedBox(height: 10),
             Text('Current Patient'),
             Text(cPat?.patientName ?? 'No Patient').size(40),
-            Text(acP.toString()).size(12),
+            Text((acP?.patientEId).toString()).size(12),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -103,7 +104,7 @@ class PatientPulseWrapper extends ConsumerWidget {
                   print("${v.name}: ${v.value} ${v.unit}");
                 }
               },
-              child: Text('Check Vitals'),
+              child: Text('Check My Vitals'),
             ),
             ElevatedButton(
               onPressed: () async {
@@ -114,8 +115,20 @@ class PatientPulseWrapper extends ConsumerWidget {
               },
               child: Text('Check Medications'),
             ),
+            ElevatedButton(
+              onPressed: () async {
+                final history = await HSPatient.getHistory();
+                for (final h in history) {
+                  print("${h.title} | ${h.message} | ${h.date}");
+                }
+              },
+              child: Text('Check My History'),
+            ),
             SizedBox(height: 20),
-            Text('Admin(Doctor) Functions').size(30).addTopMargin(10),
+            Text('Admin(Doctor) Functions')
+                .size(30)
+                .addTopMargin(10)
+                .addBottomMargin(10),
             ElevatedButton(
               onPressed: () async {
                 final deps = await HSAdmin.getAllDepartments();
@@ -136,7 +149,7 @@ class PatientPulseWrapper extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                HSAdmin.checkinPatient('Irrfan Solana');
+                HSAdmin.checkinPatient('Alice Banks');
               },
               child: Text('Checkin Patient'),
             ),
@@ -149,12 +162,25 @@ class PatientPulseWrapper extends ConsumerWidget {
             ElevatedButton(
               onPressed: () async {
                 if (acP == null) return print('ACP is null');
-                final vitals = await HSPatient.getVitals(acP);
+                final vitals = await HSPatient.getVitals(acP.patientEId);
                 for (final v in vitals) {
                   print("${v.name}: ${v.value} ${v.unit}");
                 }
               },
               child: Text('Check Patient Vitals'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                if (acP == null) return print('ACP is null');
+                await HSAdmin.prescribeMedication(
+                  start: DateTime.now().add(Duration(days: 1)),
+                  end: DateTime.now().add(Duration(days: 8)),
+                  brandName: 'Salazar',
+                  dosage: '150mg',
+                  freq: ('2', '2', '1'),
+                );
+              },
+              child: Text('Prescribe Medication'),
             ),
             SizedBox(height: 200),
           ],
