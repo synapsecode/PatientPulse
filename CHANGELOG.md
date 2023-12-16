@@ -1,3 +1,8 @@
+# 17.12.2023 5:15AM 
+- [feat]: Added some code from Risha & Shreya's branch => modified to PatientCheckin Page
+- [feat]: Created the PersonaSelector screen 
+- [feat]: Created PatientPulsePlayground
+
 # 17.12.2023 4:33AM
 - [feat]: Calling prescribeMedication
 - [feat]: Implemented history fetching
