@@ -5,11 +5,13 @@ import 'package:patientpulse/backend/models/admin.dart';
 import 'package:patientpulse/backend/models/department.dart';
 import 'package:patientpulse/backend/models/medication.dart';
 import 'package:patientpulse/backend/models/patient.dart';
+import 'package:patientpulse/backend/patients.dart';
 import 'package:patientpulse/backend/utils.dart';
 import 'package:patientpulse/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final currentPatient = StateProvider<PatientModel?>((ref) => null);
+final activePatientEId = StateProvider<String?>((ref) => null);
 final bearerTokenProvider = StateProvider<String?>((ref) => null);
 final currentAdmin = StateProvider<AdminModel?>((ref) => null);
 
@@ -65,6 +67,18 @@ class HSAdmin {
     final resdata = res.$1!;
     final deps = resdata['data'];
     return deps.map((x) => DepartmentModel.fromModel(x)).toList();
+  }
+
+  static Future<bool> checkinPatient(String fullName) async {
+    final x = patientData
+        .where((e) => e.patientName.toLowerCase() == fullName.toLowerCase());
+    if (x.isEmpty) return false;
+    gpc.read(activePatientEId.notifier).state = x.first.patientEId;
+    return true;
+  }
+
+  static void checkoutPatient() {
+    gpc.read(activePatientEId.notifier).state = null;
   }
 
   static createPatientAssessment() async {}

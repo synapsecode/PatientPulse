@@ -43,6 +43,7 @@ class PatientPulseWrapper extends ConsumerWidget {
     final cAdmin = ref.watch(currentAdmin);
     final cPat = ref.watch(currentPatient);
     final aT = ref.watch(bearerTokenProvider);
+    final acP = ref.watch(activePatientEId);
 
     return Scaffold(
       appBar: AppBar(
@@ -54,10 +55,11 @@ class PatientPulseWrapper extends ConsumerWidget {
           children: [
             Text('Current Admin'),
             Text(cAdmin?.eid ?? 'No Admin').size(40),
+            Text(aT.toString()).size(12).addTopMargin(10),
             SizedBox(height: 10),
             Text('Current Patient'),
             Text(cPat?.patientName ?? 'No Patient').size(40),
-            Text(aT.toString()).size(12).addTopMargin(10),
+            Text(acP.toString()).size(12),
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -96,7 +98,7 @@ class PatientPulseWrapper extends ConsumerWidget {
             Text('Patient Functions').size(30).addTopMargin(10),
             ElevatedButton(
               onPressed: () async {
-                final vitals = await HSPatient.getMyVitals();
+                final vitals = await HSPatient.getVitals();
                 for (final v in vitals) {
                   print("${v.name}: ${v.value} ${v.unit}");
                 }
@@ -132,6 +134,29 @@ class PatientPulseWrapper extends ConsumerWidget {
               },
               child: Text('View Active Visits'),
             ),
+            ElevatedButton(
+              onPressed: () async {
+                HSAdmin.checkinPatient('Irrfan Solana');
+              },
+              child: Text('Checkin Patient'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                HSAdmin.checkoutPatient();
+              },
+              child: Text('Checkout Patient'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                if (acP == null) return print('ACP is null');
+                final vitals = await HSPatient.getVitals(acP);
+                for (final v in vitals) {
+                  print("${v.name}: ${v.value} ${v.unit}");
+                }
+              },
+              child: Text('Check Patient Vitals'),
+            ),
+            SizedBox(height: 200),
           ],
         ),
       ),

@@ -43,8 +43,8 @@ class HSPatient {
     print('AutoLogged in as Patient(${patient!.patientName})');
   }
 
-  static Future<List> getMyVitals() async {
-    final peid = gpc.read(currentPatient)!.patientEId;
+  static Future<List> getVitals([String? pid]) async {
+    final peid = pid ?? gpc.read(currentPatient)!.patientEId;
     final res = await DioExecutor.get(
       url: '${HSCreds.baseURL}/patientVitals?patientEId=$peid',
     );
