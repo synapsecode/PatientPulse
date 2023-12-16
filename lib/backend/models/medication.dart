@@ -36,5 +36,5 @@ class MedicationModel {
   }
 }
 
-typedef MedicationFrequency = (int m, int a, int n);
+typedef MedicationFrequency = (String m, String a, String n);
 typedef MedicationDuration = ({DateTime start, DateTime end});

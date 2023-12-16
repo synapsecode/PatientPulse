@@ -93,6 +93,45 @@ class PatientPulseWrapper extends ConsumerWidget {
                 ),
               ],
             ),
+            Text('Patient Functions').size(30).addTopMargin(10),
+            ElevatedButton(
+              onPressed: () async {
+                final vitals = await HSPatient.getMyVitals();
+                for (final v in vitals) {
+                  print("${v.name}: ${v.value} ${v.unit}");
+                }
+              },
+              child: Text('Check Vitals'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final medications = await HSPatient.getMyMedications();
+                for (final m in medications) {
+                  print("${m.brandName} ${m.dosage}");
+                }
+              },
+              child: Text('Check Medications'),
+            ),
+            SizedBox(height: 20),
+            Text('Admin(Doctor) Functions').size(30).addTopMargin(10),
+            ElevatedButton(
+              onPressed: () async {
+                final deps = await HSAdmin.getAllDepartments();
+                for (final d in deps) {
+                  print(d.name);
+                }
+              },
+              child: Text('Get All Departments'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                final visits = await HSAdmin.getAllActiveVisits();
+                for (final p in visits) {
+                  print(p.nameAlias);
+                }
+              },
+              child: Text('View Active Visits'),
+            ),
           ],
         ),
       ),

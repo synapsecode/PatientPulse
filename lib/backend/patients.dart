@@ -3,6 +3,7 @@ import 'package:patientpulse/backend/dioexecutor.dart';
 import 'package:patientpulse/backend/healthscore.dart';
 import 'package:patientpulse/backend/models/medication.dart';
 import 'package:patientpulse/backend/models/patient.dart';
+import 'package:patientpulse/backend/models/vital.dart';
 import 'package:patientpulse/backend/utils.dart';
 import 'package:patientpulse/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -42,13 +43,24 @@ class HSPatient {
     print('AutoLogged in as Patient(${patient!.patientName})');
   }
 
-  getMyVitals() async {}
+  static Future<List> getMyVitals() async {
+    final peid = gpc.read(currentPatient)!.patientEId;
+    final res = await DioExecutor.get(
+      url: '${HSCreds.baseURL}/patientVitals?patientEId=$peid',
+    );
+    if (res.$2 != null) {
+      return commonErrorHandler(res.$2!, <VitalModel>[]);
+    }
+    final resdata = res.$1!;
+    final vitals = resdata['data'];
+    return vitals.map((x) => VitalModel.fromModel(x)).toList();
+  }
 
   getHistory() async {}
 
   getPatientAssessmentResult() {}
 
-  getMyMedications() async {
+  static Future<List> getMyMedications() async {
     final peid = gpc.read(currentPatient)!.patientEId;
     final res = await DioExecutor.get(
       url: '${HSCreds.baseURL}/getCurrentMedicationDetails?patientEId=$peid',
@@ -70,7 +82,7 @@ Map<int, PatientModel> hsPatientDataMapping = {
   ('irrfansolana'.hashCode ^ '12345'.hashCode): patientData[4],
 };
 
-final List patientData = [
+final List<PatientModel> patientData = [
   PatientModel(
     patientEId: 'ONeqqJDqZ4JYnEReeC-fpQ==',
     patientName: 'John Doe',

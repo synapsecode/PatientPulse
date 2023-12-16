@@ -55,7 +55,7 @@ class HSAdmin {
     print('AutoLogged in as Admin(${admin.eid})');
   }
 
-  static Future<List<DepartmentModel>> getAllDepartments() async {
+  static Future<List> getAllDepartments() async {
     final res = await DioExecutor.get(
       url: '${HSCreds.baseURL}/getDepartment',
     );
@@ -69,7 +69,7 @@ class HSAdmin {
 
   static createPatientAssessment() async {}
 
-  static getAllActiveVisits() async {
+  static Future<List> getAllActiveVisits() async {
     final res = await DioExecutor.get(
       url: '${HSCreds.baseURL}/getactivevisits?visittype=OUT&pageNo=0',
     );

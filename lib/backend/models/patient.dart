@@ -1,3 +1,5 @@
+import 'package:patientpulse/backend/patients.dart';
+
 class PatientModel {
   final String patientEId;
   final String patientName;
@@ -8,6 +10,15 @@ class PatientModel {
     required this.patientName,
     required this.latestVisitId,
   });
+
+  String get nameAlias {
+    final x = patientData.where((e) => e.patientEId == patientEId);
+    if (x.length == 1) {
+      return x.first.patientName;
+    }
+    return patientName;
+  }
+
   factory PatientModel.fromMap(Map x) {
     return PatientModel(
       patientEId: x['patientEId'],
