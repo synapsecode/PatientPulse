@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:patientpulse/backend/models/history.dart';
 import 'package:patientpulse/backend/models/medication.dart';
 import 'package:patientpulse/backend/models/vital.dart';
@@ -64,29 +65,26 @@ class ProgressHistoryElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Color.fromARGB(255, 5, 47, 82),
       margin: EdgeInsets.all(8.0),
       child: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              model.title,
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text(model.title).color(Colors.amberAccent).size(40),
+            Text(model.date?.getDateString() ?? 'unspecified')
+                .color(Colors.amber),
             SizedBox(height: 8.0),
-            Text(
+            HtmlWidget(
               model.message,
-              style: TextStyle(fontSize: 16.0),
+              textStyle: TextStyle(color: Colors.white70),
             ),
+            // Text(
+            //   model.message,
+            //   style: TextStyle(fontSize: 16.0),
+            // ),
             SizedBox(height: 8.0),
-            Text(
-              "Date: ${model.date}",
-              style: TextStyle(fontSize: 16.0),
-            ),
           ],
         ),
       ),
@@ -132,7 +130,7 @@ class MedicationDisplayElement extends StatelessWidget {
                           TextSpan(
                               text: model.dosage.isEmpty
                                   ? " (50mg)"
-                                  : "( ${model.dosage})",
+                                  : " (${model.dosage})",
                               style: TextStyle(
                                 color: Colors.white30,
                                 fontSize: 25,
@@ -141,7 +139,8 @@ class MedicationDisplayElement extends StatelessWidget {
                       ),
                     ).limitSize(220),
                     Text('${model.frequency.$1}-${model.frequency.$2}-${model.frequency.$3}')
-                        .color(Colors.amber.withAlpha(200)),
+                        .color(Colors.amber.withAlpha(200))
+                        .addTopMargin(2),
                   ],
                 ),
               ],

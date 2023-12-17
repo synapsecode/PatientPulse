@@ -3,6 +3,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:patientpulse/backend/patients.dart';
 import 'package:patientpulse/extensions/extensions.dart';
 import 'package:patientpulse/main.dart';
+import 'package:patientpulse/screens/patient/sections/myhistory.dart';
 import 'package:patientpulse/screens/patient/sections/mymedications.dart';
 import 'package:patientpulse/screens/patient/sections/myvitals.dart';
 
@@ -58,7 +59,7 @@ class _PatientHomeState extends State<PatientHome> {
             children: [
               MyVitalsPage(),
               MyMedicationsPage(),
-              SizedBox(),
+              MyHistoryPage(),
               SizedBox(),
             ],
           )),
