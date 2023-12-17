@@ -6,6 +6,9 @@ import 'package:patientpulse/extensions/extensions.dart';
 import 'package:patientpulse/main.dart';
 import 'package:patientpulse/screens/doctor/checklin.dart';
 import 'package:patientpulse/screens/doctor/departments_list.dart';
+import 'package:patientpulse/screens/doctor/sections/addvitals.dart';
+import 'package:patientpulse/screens/doctor/sections/prescribe.dart';
+import 'package:patientpulse/screens/doctor/sections/visits.dart';
 
 class DoctorHome extends StatefulWidget {
   const DoctorHome({super.key});
@@ -16,10 +19,6 @@ class DoctorHome extends StatefulWidget {
 
 class _DoctorHomeState extends State<DoctorHome> {
   int pageIndex = 0;
-
-  Widget getPageContent() {
-    return FlutterLogo();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +58,15 @@ class _DoctorHomeState extends State<DoctorHome> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
-        child: getPageContent(),
-      ),
+          padding: EdgeInsets.all(20),
+          child: IndexedStack(
+            index: pageIndex,
+            children: [
+              PrescribePage(),
+              ActiveVisitsPage(),
+              AddVitalsPage(),
+            ],
+          )),
       bottomNavigationBar: GNav(
         selectedIndex: pageIndex,
         backgroundColor: Color.fromARGB(255, 5, 47, 82),
@@ -80,7 +85,7 @@ class _DoctorHomeState extends State<DoctorHome> {
         tabs: const [
           GButton(icon: Icons.edit, text: 'Prescribe'),
           GButton(icon: Icons.event, text: 'Visits'),
-          GButton(icon: Icons.list_alt, text: 'Departments'),
+          GButton(icon: Icons.favorite, text: 'Update Vitals'),
         ],
       ),
     );

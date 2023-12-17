@@ -1,3 +1,9 @@
+# 17.12.2023 9:26AM
+- [feat]: ActiveVisitsPage created
+- [feat]: PrescribePage created
+- [feat]: AddVitalsPage created
+- [feat]: VitalModel updated to include code & measurementId
+
 # 17.12.2023 7:26AM
 - [feat]: VisitHistory page completed
 

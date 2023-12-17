@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:patientpulse/backend/admin.dart';
 import 'package:patientpulse/backend/patients.dart';
 import 'package:patientpulse/extensions/extensions.dart';
+import 'package:patientpulse/screens/doctor/checklin.dart';
 import 'package:patientpulse/screens/doctor/doctor_home.dart';
 import 'package:patientpulse/screens/patient/patient_home.dart';
 import 'package:patientpulse/utils.dart';
@@ -72,7 +73,7 @@ class _DoctorLoginScreenState extends State<DoctorLoginScreen> {
                         'either an error occured or your credentials are incorrect',
                   );
                 }
-                Navigator.of(context).replaceWithNewPage(DoctorHome());
+                Navigator.of(context).replaceWithNewPage(CheckinPatientPage());
               },
               child: Container(
                 decoration: BoxDecoration(

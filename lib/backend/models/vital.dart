@@ -2,8 +2,10 @@ class VitalModel {
   final String? eid;
   final String name;
   final String unit;
-  final String? value;
+  String? value;
   final DateTime? checkedDate;
+  final String code;
+  final String measurementId;
 
   VitalModel({
     required this.eid,
@@ -11,6 +13,8 @@ class VitalModel {
     required this.name,
     required this.value,
     required this.checkedDate,
+    required this.code,
+    required this.measurementId,
   });
 
   bool get isValid => eid != null;
@@ -18,6 +22,8 @@ class VitalModel {
 
   factory VitalModel.fromMap(Map x) {
     return VitalModel(
+      code: x['code'],
+      measurementId: x['measurementId'].toString(),
       eid: x['eid'],
       name: x['name'],
       unit: x['measurementUnit'],

@@ -5,6 +5,7 @@ import 'package:patientpulse/backend/models/admin.dart';
 import 'package:patientpulse/backend/models/department.dart';
 import 'package:patientpulse/backend/models/medication.dart';
 import 'package:patientpulse/backend/models/patient.dart';
+import 'package:patientpulse/backend/models/vital.dart';
 import 'package:patientpulse/backend/patients.dart';
 import 'package:patientpulse/backend/utils.dart';
 import 'package:patientpulse/main.dart';
@@ -114,6 +115,31 @@ class HSAdmin {
         "frequency": "${freq.$1}-${freq.$2}-${freq.$3}",
         "visitEId": gpc.read(activePatient)!.latestVisitId,
         "patientEId": gpc.read(activePatient)!.patientEId,
+      },
+    );
+    if (res.$2 != null) {
+      return commonErrorHandler(res.$2!, null);
+    }
+  }
+
+  static Future<void> updateVitals({
+    required List vitals,
+    required PatientModel patient,
+  }) async {
+    final res = await DioExecutor.post(
+      url: '${HSCreds.baseURL}/updatePatientVitals',
+      data: {
+        "updatedVitals": [
+          ...vitals
+              .map((x) => {
+                    "eid": patient.patientEId,
+                    "visitEId": patient.latestVisitId,
+                    "code": x.code,
+                    "value": x.value,
+                    "measurementId": x.measurementId,
+                  })
+              .toList(),
+        ]
       },
     );
     if (res.$2 != null) {
