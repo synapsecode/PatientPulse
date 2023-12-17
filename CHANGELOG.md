@@ -1,3 +1,9 @@
+# 17.12.2023 7:09AM
+- [feat]: MyVitalsPage & MyMedications page created
+- [feat]: IndexedStack used in PatientHome
+- [feat]: MedicationDisplayElement & VitalDisplayElement modified
+
+
 # 17.12.2023 6:34AM 
 - [feat]: PatientHome & DoctorHome: Basic Scaffolding done (GNav used)
 - [feat]: Doctor Checkin adeed to AuthFlow

@@ -46,6 +46,7 @@ class HSPatient {
 
   static Future<List> getVitals([String? pid]) async {
     final peid = pid ?? gpc.read(currentPatient)!.patientEId;
+    print(peid);
     final res = await DioExecutor.get(
       url: '${HSCreds.baseURL}/patientVitals?patientEId=$peid',
     );

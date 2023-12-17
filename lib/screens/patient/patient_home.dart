@@ -3,6 +3,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:patientpulse/backend/patients.dart';
 import 'package:patientpulse/extensions/extensions.dart';
 import 'package:patientpulse/main.dart';
+import 'package:patientpulse/screens/patient/sections/mymedications.dart';
+import 'package:patientpulse/screens/patient/sections/myvitals.dart';
 
 class PatientHome extends StatefulWidget {
   const PatientHome({super.key});
@@ -13,10 +15,6 @@ class PatientHome extends StatefulWidget {
 
 class _PatientHomeState extends State<PatientHome> {
   int pageIndex = 0;
-
-  Widget getPageContent() {
-    return FlutterLogo();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +52,16 @@ class _PatientHomeState extends State<PatientHome> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(20),
-        child: getPageContent(),
-      ),
+          padding: EdgeInsets.all(20),
+          child: IndexedStack(
+            index: pageIndex,
+            children: [
+              MyVitalsPage(),
+              MyMedicationsPage(),
+              SizedBox(),
+              SizedBox(),
+            ],
+          )),
       bottomNavigationBar: GNav(
         selectedIndex: pageIndex,
         backgroundColor: Color.fromARGB(255, 5, 47, 82),
