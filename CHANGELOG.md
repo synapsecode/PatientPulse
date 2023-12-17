@@ -1,3 +1,7 @@
+# 17.12.2023 6:34AM 
+- [feat]: PatientHome & DoctorHome: Basic Scaffolding done (GNav used)
+- [feat]: Doctor Checkin adeed to AuthFlow
+
 # 17.12.2023 5:58AM 
 - [feat]: PatientLogin, DoctorLogin, PatientHome, DoctorHome screens added
 - [feat]: AutoRedirect for loggedin state implemented

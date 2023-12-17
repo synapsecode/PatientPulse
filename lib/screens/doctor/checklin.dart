@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:patientpulse/backend/admin.dart';
 import 'package:patientpulse/extensions/extensions.dart';
+import 'package:patientpulse/main.dart';
+import 'package:patientpulse/screens/doctor/doctor_home.dart';
 import 'package:patientpulse/utils.dart';
 
 class CheckinPatientPage extends StatefulWidget {
@@ -16,6 +18,7 @@ class _CheckinPatientPageState extends State<CheckinPatientPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 2, 22, 38),
       appBar: AppBar(
         title: Text("Patient Checkin").color(Colors.white),
         centerTitle: true,
@@ -26,22 +29,21 @@ class _CheckinPatientPageState extends State<CheckinPatientPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.network('https://img.icons8.com/fluency/96/enter-2.png'),
+            Text('Check-In Patient').color(Colors.white).size(40),
+            SizedBox(height: 20),
             TextField(
               controller: pNameController,
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                labelText: 'Patient Full Name',
+                labelText: 'full name',
+                labelStyle: TextStyle(color: Colors.amber.withAlpha(100)),
                 border: OutlineInputBorder(),
               ),
-            ),
+            ).addHorizontalMargin(20),
             SizedBox(height: 16.0),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                textStyle: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 16.0,
-                ),
-              ),
-              onPressed: () async {
+            GestureDetector(
+              onTap: () async {
                 final fn = pNameController.value.text.trim();
                 final res = await HSAdmin.checkinPatient(fn);
                 if (!res) {
@@ -52,9 +54,31 @@ class _CheckinPatientPageState extends State<CheckinPatientPage> {
                   );
                 }
                 print('Patient Checked in!');
+                Navigator.of(context).replaceWithNewPage(DoctorHome());
               },
-              child: Text('Check-In Patient'),
-            ),
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.redAccent),
+                  color: Colors.red.withAlpha(150),
+                  borderRadius: BorderRadius.circular(3),
+                ),
+                height: 50,
+                width: double.infinity,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: Text('Check-In')
+                    .color(Colors.white)
+                    .size(24)
+                    .weight(FontWeight.w200)
+                    .center(),
+              ),
+            ).addBottomMargin(20),
+            Text('Logout').color(Colors.white30).size(20).onClick(() {
+              HSAdmin.logout();
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => PatientPulseWrapper()),
+                (route) => false,
+              );
+            })
           ],
         ),
       ),

@@ -68,7 +68,7 @@ class _PatientPulseWrapperState extends ConsumerState<PatientPulseWrapper> {
 
     if (cAdmin != null) {
       //Redireect to AdminHome
-      Navigator.of(context).replaceWithNewPage(DoctorHome());
+      Navigator.of(context).replaceWithNewPage(CheckinPatientPage());
     } else if (cPat != null) {
       //Redirect to Patient Home
       Navigator.of(context).replaceWithNewPage(PatientHome());
