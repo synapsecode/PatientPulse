@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:patientpulse/extensions/extensions.dart';
+import 'package:patientpulse/screens/doctor/doctor_login.dart';
+import 'package:patientpulse/screens/patient/patient_login.dart';
 
 class PersonaSelector extends StatelessWidget {
   const PersonaSelector({super.key});
@@ -23,7 +25,9 @@ class PersonaSelector extends StatelessWidget {
               .weight(FontWeight.w300),
           SizedBox(height: 40),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).replaceWithNewPage(DoctorLoginScreen());
+            },
             child: Container(
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.redAccent),
@@ -40,7 +44,9 @@ class PersonaSelector extends StatelessWidget {
             ),
           ).addBottomMargin(20),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).replaceWithNewPage(PatientLoginScreen());
+            },
             child: Container(
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.redAccent),

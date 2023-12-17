@@ -37,8 +37,12 @@ class DioExecutor {
     required String url,
   }) async {
     await initializeInterceptors();
-    final response = await dio.get(url);
-    return await _exec(url: url, response: response);
+    try {
+      final response = await dio.get(url);
+      return await _exec(url: url, response: response);
+    } catch (e) {
+      return (null, {'error': 'Exception: $e', 'statuscode': -1});
+    }
   }
 
   static Future<DEResponse> post({
@@ -46,16 +50,24 @@ class DioExecutor {
     required Map data,
   }) async {
     await initializeInterceptors();
-    final response = await dio.post(url, data: data);
-    return await _exec(url: url, response: response);
+    try {
+      final response = await dio.post(url, data: data);
+      return await _exec(url: url, response: response);
+    } catch (e) {
+      return (null, {'error': 'Exception: $e', 'statuscode': -1});
+    }
   }
 
   static Future<DEResponse> delete({
     required String url,
   }) async {
     await initializeInterceptors();
-    final response = await dio.delete(url);
-    return await _exec(url: url, response: response);
+    try {
+      final response = await dio.delete(url);
+      return await _exec(url: url, response: response);
+    } catch (e) {
+      return (null, {'error': 'Exception: $e', 'statuscode': -1});
+    }
   }
 
   static Future<DEResponse> put({
@@ -63,8 +75,12 @@ class DioExecutor {
     required Map data,
   }) async {
     await initializeInterceptors();
-    final response = await dio.put(url, data: data);
-    return await _exec(url: url, response: response);
+    try {
+      final response = await dio.put(url, data: data);
+      return await _exec(url: url, response: response);
+    } catch (e) {
+      return (null, {'error': 'Exception: $e', 'statuscode': -1});
+    }
   }
 
   static Future<DEResponse> _exec({

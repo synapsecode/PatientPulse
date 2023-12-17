@@ -16,7 +16,7 @@ final bearerTokenProvider = StateProvider<String?>((ref) => null);
 final currentAdmin = StateProvider<AdminModel?>((ref) => null);
 
 class HSAdmin {
-  static Future<void> login(
+  static Future<bool> login(
     String username,
     String password, {
     bool accessTokenFetchOnly = false,
@@ -26,7 +26,7 @@ class HSAdmin {
       url: HSCreds.getLoginURL(username: username, password: password),
     );
     if (res.$2 != null) {
-      return commonErrorHandler(res.$2!, null);
+      return commonErrorHandler(res.$2!, false);
     }
     final admin = AdminModel.fromMap(res.$1!);
     if (!accessTokenFetchOnly) {
@@ -37,6 +37,7 @@ class HSAdmin {
       gpc.read(bearerTokenProvider.notifier).state = admin.accessToken;
       await prefs.setString('admin_accesstoken', admin.accessToken);
     }
+    return true;
   }
 
   static logout() async {

@@ -17,7 +17,8 @@ class _CheckinPatientPageState extends State<CheckinPatientPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Enter Patient's Full Name").color(Colors.white),
+        title: Text("Patient Checkin").color(Colors.white),
+        centerTitle: true,
         backgroundColor: Color.fromARGB(255, 5, 47, 82),
       ),
       body: Padding(

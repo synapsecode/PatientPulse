@@ -1,3 +1,8 @@
+# 17.12.2023 5:58AM 
+- [feat]: PatientLogin, DoctorLogin, PatientHome, DoctorHome screens added
+- [feat]: AutoRedirect for loggedin state implemented
+- [feat]: Added exception handling to DioExecutor functions
+
 # 17.12.2023 5:15AM 
 - [feat]: Added some code from Risha & Shreya's branch => modified to PatientCheckin Page
 - [feat]: Created the PersonaSelector screen 
